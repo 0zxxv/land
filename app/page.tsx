@@ -94,7 +94,7 @@ export default function Home() {
           </p>
           <a
             href={hero.cta.href}
-            className="inline-flex w-fit items-center gap-2.5 rounded-lg bg-white px-8 py-4 text-base font-medium text-slate-800 shadow-md transition hover:bg-off-white hover:shadow-lg"
+            className="inline-flex w-fit items-center gap-2.5 rounded-lg bg-white px-8 py-4 text-lg font-medium text-slate-800 shadow-md transition hover:bg-off-white hover:shadow-lg"
           >
             {hero.cta.label}
             <Image
