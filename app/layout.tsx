@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { content } from "./content";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Transform Your Ideas Into Digital Reality",
-  description:
-    "We build robust, scalable IT solutions tailored to your unique business needs.",
+  title: content.site.title,
+  description: content.site.description,
 };
 
 export default function RootLayout({
