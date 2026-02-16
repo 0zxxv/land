@@ -8,7 +8,6 @@ export function VideoBackground() {
       <video
         autoPlay
         muted
-        loop
         playsInline
         preload="metadata"
         className="h-full w-full object-cover"
