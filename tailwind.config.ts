@@ -15,6 +15,7 @@ const config: Config = {
         "off-white": "#f8fafc",
       },
       fontFamily: {
+        sans: ["Manrope", "system-ui", "sans-serif"],
         newsreader: ["Newsreader", "Georgia", "serif"],
       },
     },
