@@ -22,12 +22,12 @@ export const content = {
 
   /** Header navigation links (order preserved) */
   navLinks: [
-    "Home",
-    "Services",
-    "How It Works",
-    "Industries",
-    "Our Team",
-    "About Us",
+    { label: "Home", href: "/" },
+    { label: "Services", href: "#services" },
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Industries", href: "#industries" },
+    { label: "Our Team", href: "#team" },
+    { label: "About Us", href: "#about" },
   ],
 
   /** Header CTA button */
