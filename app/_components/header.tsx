@@ -35,7 +35,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <a
             href={headerCta.href}
-            className="hidden items-center gap-2.5 rounded-lg bg-navy px-8 py-4 text-lg font-medium text-white transition hover:bg-navy-light sm:flex"
+            className="hidden items-center gap-2.5 rounded-lg bg-[#123146] px-8 py-4 text-lg font-medium text-white transition hover:opacity-90 sm:flex"
           >
             {headerCta.label}
             <Image

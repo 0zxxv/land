@@ -98,7 +98,7 @@ export function MobileNav() {
             <a
               href={headerCta.href}
               onClick={close}
-              className="mt-4 rounded-lg bg-navy px-4 py-3 text-center text-base font-medium text-white transition hover:bg-navy-light"
+              className="mt-4 rounded-lg bg-[#123146] px-4 py-3 text-center text-base font-medium text-white transition hover:opacity-90"
             >
               {headerCta.label}
             </a>

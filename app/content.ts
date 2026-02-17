@@ -5,7 +5,7 @@
 
 const ASSETS = {
   logo: "/assets/logo-blue.png",
-  iconWhite: "/assets/icon-white.svg",
+  iconWhite: "/assets/icon-white.png",
   iconBlue: "/assets/icon-blue.svg",
   arrowWhite: "/assets/arrow-white.png",
   arrowBlack: "/assets/arrow-black.png",
