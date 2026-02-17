@@ -1,11 +1,14 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { content } from "../content";
 
 const { navLinks, headerCta } = content;
 
 export function MobileNav() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
   const close = useCallback(() => setOpen(false), []);
@@ -85,23 +88,29 @@ export function MobileNav() {
                 />
               </svg>
             </button>
-            {navLinks.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                onClick={close}
-                className="rounded-lg px-4 py-3 text-base font-medium text-slate-800 transition hover:bg-slate-100"
-              >
-                {label}
-              </a>
-            ))}
-            <a
+            {navLinks.map(({ label, href }) => {
+              const isActive =
+                href === "/" ? pathname === "/" : pathname === href;
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  onClick={close}
+                  className={`rounded-lg px-4 py-3 text-base font-medium transition-all duration-200 hover:bg-slate-100 active:bg-slate-200 ${
+                    isActive ? "text-slate-900 font-semibold" : "text-slate-800"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+            <Link
               href={headerCta.href}
               onClick={close}
-              className="mt-4 rounded-lg bg-[#123146] px-4 py-3 text-center text-base font-medium text-white transition hover:opacity-90"
+              className="mt-4 rounded-lg bg-[#123146] px-4 py-3 text-center text-base font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:brightness-110 hover:shadow-lg active:scale-[0.98]"
             >
               {headerCta.label}
-            </a>
+            </Link>
           </nav>
         </div>
       )}
