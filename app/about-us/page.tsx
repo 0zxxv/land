@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "../_components/header";
 import { content } from "../content";
-import { renderCardTitle } from "../lib/utils";
+import { formatCardTitleLines } from "../lib/utils";
 
 const { aboutUs, purpose, values, assets } = content;
 
@@ -174,7 +174,11 @@ export default function AboutUsPage() {
                       />
                     )}
                     <h3 className="mb-2 text-xl font-bold leading-tight text-slate-900">
-                      {renderCardTitle(card.title)}
+                      {formatCardTitleLines(card.title).map((line, j) => (
+                      <span key={j} className="block">
+                        {line}
+                      </span>
+                    ))}
                     </h3>
                     <p className="text-sm leading-relaxed text-slate-600">
                       {card.description}
