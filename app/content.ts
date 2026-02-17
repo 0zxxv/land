@@ -5,21 +5,21 @@
 
 const ASSETS = {
   logo: "/assets/logo-blue.png",
-  iconWhite: "/assets/icon-white.png",
+  iconWhite: "/assets/icon-white.svg",
   iconBlue: "/assets/icon-blue.svg",
   arrowWhite: "/assets/arrow-white.png",
   arrowBlack: "/assets/arrow-black.png",
   video: "/assets/bg-video.mp4",
-  rocket: "/assets/rocket.png",
-  eye: "/assets/eye.png",
-  criticalError: "/assets/critical-error.png",
+  rocket: "/assets/rocket.svg",
+  eye: "/assets/eye.svg",
+  criticalError: "/assets/critical-error.svg",
   /** Values section icons (order: Innovation First, Sovereign Excellence, Client Success, Collaborative Culture, Integrity & Trust, Agile Execution) */
-  valuesInnovationFirst: "/assets/innovation first.png",
-  valuesSovereign: "/assets/sovereign.png",
+  valuesInnovationFirst: "/assets/innovation first.svg",
+  valuesSovereign: "/assets/sovereign excellence.svg",
   valuesClientSuccess: "/assets/client success.png",
-  valuesCollaborative: "/assets/collaborative culture.png",
-  valuesIntegrityTrust: "/assets/integrity & trust.png",
-  valuesAgileExecution: "/assets/agile execution.png",
+  valuesCollaborative: "/assets/collaborative culture.svg",
+  valuesIntegrityTrust: "/assets/integrity & trust.svg",
+  valuesAgileExecution: "/assets/agile execution.svg",
 } as const;
 
 export const content = {

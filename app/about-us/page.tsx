@@ -21,7 +21,9 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <div className="flex h-screen flex-col overflow-y-auto bg-white">
-      <Header />
+      <div className="sticky top-0 z-50 bg-white">
+        <Header />
+      </div>
       <main>
         {/* Hero section */}
         <section

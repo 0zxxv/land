@@ -7,7 +7,7 @@ const HEADLINE_LAST_INDEX = hero.headlineLines.length - 1;
 
 export function Hero() {
   return (
-    <section className="flex min-h-[calc(100vh-80px)] flex-col justify-start px-8 pt-20 pb-24 lg:max-w-5xl lg:px-16 lg:pt-24">
+    <section className="flex min-h-[calc(100vh-80px)] flex-col justify-start px-8 pt-8 pb-24 lg:max-w-5xl lg:px-16 lg:pt-12">
       <p className="mb-5 flex items-center gap-3 text-lg font-medium text-white">
         <Image
           src={assets.iconWhite}
