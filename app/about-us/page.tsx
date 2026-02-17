@@ -4,8 +4,9 @@ import Link from "next/link";
 import { Header } from "../_components/header";
 import { content } from "../content";
 import { formatCardTitleLines } from "../lib/utils";
+import { FAQSection } from "./_components/faq-section";
 
-const { aboutUs, purpose, values, regionalPresence, assets } = content;
+const { aboutUs, purpose, values, regionalPresence, faq, assets } = content;
 
 const DOTS_SECTION_STYLE = {
   backgroundImage: "url('/assets/bg-dots.png')",
@@ -233,6 +234,9 @@ export default function AboutUsPage() {
             </div>
           </div>
         </section>
+
+        {/* FAQ section */}
+        <FAQSection faq={faq} assets={assets} />
       </main>
     </div>
   );
