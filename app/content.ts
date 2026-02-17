@@ -20,6 +20,7 @@ const ASSETS = {
   valuesCollaborative: "/assets/collaborative culture.svg",
   valuesIntegrityTrust: "/assets/integrity & trust.svg",
   valuesAgileExecution: "/assets/agile execution.svg",
+  manama: "/assets/manama.svg",
 } as const;
 
 export const content = {
@@ -108,6 +109,18 @@ export const content = {
           "Rapid prototyping and continuous iteration allow us to stay ahead in a fast-moving tech environment.",
       },
     ],
+  },
+
+  /** About Us page – Regional Presence section */
+  regionalPresence: {
+    headingLine1: "Regional",
+    headingLine2: "Presence",
+    subtitle:
+      "Strategically positioned in the heart of the world's most dynamic business hubs.",
+    location: {
+      city: "Manama, Bahrain",
+      description: "Tech R&D Center - Manama Business",
+    },
   },
 
   /** About Us page – Our Purpose section */

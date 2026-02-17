@@ -5,7 +5,7 @@ import { Header } from "../_components/header";
 import { content } from "../content";
 import { formatCardTitleLines } from "../lib/utils";
 
-const { aboutUs, purpose, values, assets } = content;
+const { aboutUs, purpose, values, regionalPresence, assets } = content;
 
 const DOTS_SECTION_STYLE = {
   backgroundImage: "url('/assets/bg-dots.png')",
@@ -188,6 +188,48 @@ export default function AboutUsPage() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Regional Presence section */}
+        <section
+          className="bg-white px-8 py-16 pb-24 lg:px-16 lg:py-20 lg:pb-36"
+          aria-labelledby="regional-heading"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="mb-5 text-center">
+              <h2
+                id="regional-heading"
+                className="mb-1 text-4xl font-bold text-slate-900 sm:text-5xl"
+              >
+                {regionalPresence.headingLine1}{" "}
+                <span className="font-newsreader font-medium italic">
+                  {regionalPresence.headingLine2}
+                </span>
+              </h2>
+            </div>
+            <p className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-slate-600 sm:text-xl">
+              {regionalPresence.subtitle}
+            </p>
+            <div className="overflow-hidden rounded-2xl bg-[#F3F4F6] shadow-lg">
+              <div className="relative px-6 pt-6">
+                <Image
+                  src={assets.manama}
+                  alt={`${regionalPresence.location.city} cityscape`}
+                  width={1200}
+                  height={600}
+                  className="h-auto w-full rounded-lg object-cover"
+                />
+              </div>
+              <div className="px-6 pb-8 pt-6">
+                <h3 className="mb-1 text-xl font-bold text-slate-900">
+                  {regionalPresence.location.city}
+                </h3>
+                <p className="text-sm text-slate-600">
+                  {regionalPresence.location.description}
+                </p>
+              </div>
             </div>
           </div>
         </section>
