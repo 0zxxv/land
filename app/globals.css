@@ -13,8 +13,14 @@
 }
 
 @layer base {
-  html,
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
   body {
-    overflow-x: hidden;
+    overflow: hidden;
+    height: 100%;
+    min-height: 100vh;
+    max-height: 100vh;
   }
 }

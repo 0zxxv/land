@@ -23,7 +23,7 @@ export const content = {
   /** Header navigation links (order preserved) */
   navLinks: [
     { label: "Home", href: "/" },
-    { label: "Services", href: "#services" },
+    { label: "Services", href: "#" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "Industries", href: "#industries" },
     { label: "Our Team", href: "#team" },
@@ -51,47 +51,6 @@ export const content = {
       label: "About Us",
       href: "#about",
     },
-  },
-
-  /** Our Services section */
-  services: {
-    tagline: "Our services",
-    title: "Practical AI solutions built for",
-    titleHighlight: "real business needs",
-    subtitle:
-      "We design and deploy AI systems that automate work, improve efficiency, and scale with your business.",
-    cards: [
-      {
-        title: "AI Agent Development",
-        description:
-          "Automate customer support, internal processes, and data handling using agents trained on your workflows.",
-      },
-      {
-        title: "AI Workflow Automation",
-        description:
-          "We connect AI with your existing tools to streamline processes and improve speed and accuracy.",
-      },
-      {
-        title: "Enterprise AI Integration",
-        description:
-          "Seamless integration with CRMs, ERPs, databases, and internal platforms without disruption.",
-      },
-      {
-        title: "AI Consulting & Strategy",
-        description:
-          "We identify the right AI use cases and create a practical roadmap aligned with your business goals.",
-      },
-      {
-        title: "Custom AI Solutions",
-        description:
-          "From internal tools to customer facing AI products, everything is designed around your needs.",
-      },
-      {
-        title: "AI Maintenance & Support",
-        description:
-          "Ongoing monitoring, optimization, and improvements to ensure long term performance.",
-      },
-    ],
   },
 
   /** Image alt text and asset paths */

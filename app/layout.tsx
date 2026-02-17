@@ -42,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="h-screen overflow-hidden font-sans antialiased">{children}</body>
     </html>
   );
 }
