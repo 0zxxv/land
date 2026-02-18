@@ -127,7 +127,10 @@ export const content = {
   /** About Us page – FAQ section */
   faq: {
     label: "FAQ",
-    heading: "What businesses do you work with?",
+    /** Heading: line 1 "What businesses", line 2 "do you" regular + "work with?" italic */
+    headingLine1: "What businesses",
+    headingLine2Regular: "do you ",
+    headingLine2Italic: "work with?",
     subtitle: "Startups, growing teams, and enterprises across industries.",
     questions: [
       {

@@ -24,10 +24,10 @@ export function FAQAccordion({
           <button
             key={index}
             onClick={() => onActiveChange(index)}
-            className={`w-full rounded-2xl px-5 py-4 text-left transition-colors ${
+            className={`w-full rounded-2xl px-5 py-4 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 ${
               isActive
-                ? "bg-slate-800 text-white"
-                : "bg-[#F3F4F6] text-slate-800"
+                ? "bg-black text-white"
+                : "bg-[#F3F4F6] text-black"
             }`}
           >
             <div className="flex items-center justify-between gap-2">
@@ -35,8 +35,8 @@ export function FAQAccordion({
                 {index + 1}. {item.question}
               </span>
               <span
-                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-xl font-medium text-white ${
-                  isActive ? "bg-slate-700" : "bg-slate-800"
+                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl font-medium text-white sm:h-16 sm:w-16 sm:text-3xl ${
+                  isActive ? "bg-gray-600" : "bg-black"
                 }`}
               >
                 {isActive ? "−" : "+"}
