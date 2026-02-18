@@ -64,7 +64,7 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
               <h3 className="mb-3 text-xl font-bold text-slate-900 sm:text-2xl">
                 Question Answer:
               </h3>
-              <p className="mb-6 max-w-full text-sm leading-snug text-slate-600">
+              <p className="mb-6 max-w-full text-base leading-relaxed text-slate-600 sm:text-lg">
                 {faq.questions[activeIndex].answer}
               </p>
               <Link

@@ -22,6 +22,11 @@ const ASSETS = {
   valuesAgileExecution: "/assets/agile execution.svg",
   manama: "/assets/manama.svg",
   jellyLogo: "/assets/jelly logo.svg",
+  /** Footer background grids */
+  footerGridTop: "/assets/24px Grid top.svg",
+  footerGridDown: "/assets/24px Grid down.svg",
+  logoWhite: "/assets/logo-white.svg",
+  linkedin: "/assets/linkedin.svg",
 } as const;
 
 export const content = {
@@ -181,6 +186,35 @@ export const content = {
       description:
         "To be the global standard for regional tech innovation, starting with our home in the GCC.",
     },
+  },
+
+  /** Footer (all pages except home) – CTA + footer block */
+  footer: {
+    cta: {
+      label: "Ready to Get Started?",
+      /** Line 1: "We Transform Ideas", Line 2: "Into Digital " + italic "Reality" */
+      headingLine1: "We Transform Ideas",
+      headingLine2Regular: "Into Digital ",
+      headingLine2Italic: "Reality",
+      description:
+        "Let's discuss your goals and see how AI can help automate processes, improve efficiency, and drive real results.",
+      buttonLabel: "About Us",
+      buttonHref: "/about-us",
+    },
+    companyName: "myntlabs",
+    descriptionLine1:
+      "We build practical AI solutions that help businesses work faster, reduce manual effort, and improve daily operations.",
+    descriptionLine2:
+      "Our focus is on simple, reliable tools that fit real workflows and deliver clear results.",
+    /** Same order as header + Contact Us */
+    links: [
+      { label: "Home", href: "/" },
+      { label: "About Us", href: "/about-us" },
+      { label: "Careers", href: "/careers" },
+      { label: "Contact Us", href: "/contact-us" },
+    ],
+    copyright: "© 2026 Mynt Labs. All rights reserved.",
+    linkedInUrl: "https://www.linkedin.com/company/mynt-labs",
   },
 
   /** Hero section */

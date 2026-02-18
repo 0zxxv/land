@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Footer } from "../_components/footer";
 import { Header } from "../_components/header";
 
 export const metadata: Metadata = {
@@ -10,8 +11,11 @@ export default function CareersPage() {
   return (
     <div className="flex h-screen flex-col overflow-y-auto bg-cream-dark">
       <Header />
-      <main className="flex flex-1 items-center justify-center px-6 py-12">
-        <h1 className="text-3xl font-bold text-slate-800">Careers</h1>
+      <main className="flex flex-1 flex-col">
+        <div className="flex flex-1 items-center justify-center px-6 py-12">
+          <h1 className="text-3xl font-bold text-slate-800">Careers</h1>
+        </div>
+        <Footer />
       </main>
     </div>
   );

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Header } from "../_components/header";
 import { content } from "../content";
 import { formatCardTitleLines } from "../lib/utils";
+import { Footer } from "../_components/footer";
 import { FAQSection } from "./_components/faq-section";
 
 const { aboutUs, purpose, values, regionalPresence, faq, assets } = content;
@@ -242,6 +243,7 @@ export default function AboutUsPage() {
 
         {/* FAQ section */}
         <FAQSection faq={faq} assets={assets} />
+        <Footer />
       </main>
     </div>
   );

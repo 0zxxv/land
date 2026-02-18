@@ -1,0 +1,16 @@
+<svg width="444" height="394" viewBox="0 0 444 394" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g opacity="0.5">
+<rect width="887.584" height="887.584" fill="url(#pattern0_1_15231)"/>
+<rect width="887.584" height="887.584" fill="url(#paint0_radial_1_15231)"/>
+</g>
+<defs>
+<pattern id="pattern0_1_15231" patternContentUnits="objectBoundingBox" width="0.12" height="0.12">
+<use xlink:href="#image0_1_15231" transform="scale(0.005)"/>
+</pattern>
+<radialGradient id="paint0_radial_1_15231" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(443.792 443.792) rotate(92.8606) scale(518.563)">
+<stop stop-color="#123146" stop-opacity="0.68"/>
+<stop offset="1" stop-color="#123146"/>
+</radialGradient>
+<image id="image0_1_15231" width="24" height="24" preserveAspectRatio="none" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAR0lEQVR4AezWsQ0AIAwDQcT+E2U50C/wXbpHcuXC6Krcs/hm5q0O8PcGUNBEpDyUEaGgiUh5KCNCQROR8lBGhILmclpsheUPAAD//2csKAgAAAAGSURBVAMAAwhMacJmTM0AAAAASUVORK5CYII="/>
+</defs>
+</svg>
