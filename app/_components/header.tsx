@@ -10,10 +10,17 @@ const { navLinks, headerCta, assets } = content;
 
 export function Header() {
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   return (
     <div className="flex justify-center px-6 pt-6 lg:px-8 lg:pt-8">
-      <header className="relative flex h-[72px] w-[95%] shrink-0 items-center justify-between gap-3 overflow-visible rounded-2xl border border-white/30 bg-white/70 px-3 shadow-lg backdrop-blur-md md:gap-4 lg:px-4">
+      <header
+        className={`relative flex h-[72px] w-[95%] shrink-0 items-center justify-between gap-3 overflow-visible rounded-2xl px-3 shadow-lg md:gap-4 lg:px-4 ${
+          isHome
+            ? "border border-white/30 bg-white/70 backdrop-blur-md"
+            : "border border-slate-200/60 bg-[#F2F2F2]"
+        }`}
+      >
         <div className="absolute left-3 top-1/2 flex h-32 w-32 -translate-y-1/2 shrink-0 items-center justify-center lg:left-4">
           <Link href="/">
             <Image

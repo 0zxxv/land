@@ -8,10 +8,11 @@ import { FAQSection } from "./_components/faq-section";
 
 const { aboutUs, purpose, values, regionalPresence, faq, assets } = content;
 
-const DOTS_SECTION_STYLE = {
-  backgroundImage: "url('/assets/bg-dots.png')",
+const DOTS_BG_STYLE = {
+  backgroundImage: "url('/assets/bg-dots.svg')",
   backgroundRepeat: "repeat" as const,
   backgroundColor: "#ffffff",
+  transform: "rotate(180deg)",
 };
 
 export const metadata: Metadata = {
@@ -28,11 +29,15 @@ export default function AboutUsPage() {
       <main>
         {/* Hero section */}
         <section
-          className="flex flex-col items-center justify-center px-8 pt-12 pb-24 lg:pt-16 lg:pb-36"
-          style={DOTS_SECTION_STYLE}
+          className="relative flex flex-col items-center justify-center px-8 pt-12 pb-24 lg:pt-16 lg:pb-36"
           aria-labelledby="about-heading"
         >
-          <div className="mx-auto max-w-7xl text-center sm:max-w-[90rem]">
+          <div
+            className="absolute inset-0 -z-0"
+            style={DOTS_BG_STYLE}
+            aria-hidden
+          />
+          <div className="relative z-10 mx-auto max-w-7xl text-center sm:max-w-[90rem]">
             <p className="mb-8 flex items-center justify-center gap-2 text-lg font-bold text-[#123146]">
               <Image
                 src={assets.iconBlue}
