@@ -228,7 +228,7 @@ export const content = {
       namePlaceholder: "Enter your name",
       emailLabel: "Email address",
       emailPlaceholder: "Enter your email",
-      messageLabel: "your message",
+      messageLabel: "Your message",
       messagePlaceholder: "Write something.....",
       submitLabel: "Submit",
     },
