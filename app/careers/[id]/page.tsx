@@ -167,7 +167,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                 </h2>
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm text-slate-600">Job type</span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full border border-[#123146] bg-[#EBF5FF] px-4 py-1.5 text-sm font-medium text-slate-900">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F5F9] px-4 py-1.5 text-sm font-medium text-slate-900">
                     <ClockIcon className="h-4 w-4 shrink-0 text-slate-700" />
                     {jobWithExtras.jobType}
                   </span>
