@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
 const JOBS_PER_PAGE = 6;
 
@@ -130,8 +131,8 @@ export function JobListings({
               >
                 {job.descriptionSnippet}
               </p>
-              <a
-                href="#"
+              <Link
+                href={`/careers/${globalIndex}`}
                 onClick={(e) => e.stopPropagation()}
                 className={`mb-4 inline-block text-sm font-medium underline underline-offset-2 ${
                   isSelected
@@ -140,7 +141,7 @@ export function JobListings({
                 }`}
               >
                 {readMore}
-              </a>
+              </Link>
               <div className="mt-auto flex items-center justify-between border-t pt-4 text-sm">
                 <span
                   className={

@@ -269,6 +269,28 @@ export const content = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         salary: "$2500/hr",
         postedDays: 12,
+        location: "Sanderson 812 NT",
+        postedDate: "03-24-2023",
+        jobType: "Shiftbased",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n\nDuis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        recruitersInfo: [
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          "Duis aute irure dolor in reprehenderit in voluptate velit esse.",
+          "Excepteur sint occaecat cupidatat non proident.",
+          "Sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        ],
+        shiftDetails: [
+          { day: "Sunday", date: "29 Dec, 2024", time: "09:00am - 05:00pm" },
+          { day: "Monday", date: "29 Dec, 2024", time: "09:00am - 05:00pm" },
+          { day: "Tuesday", date: "29 Dec, 2024", time: "09:00am - 05:00pm" },
+          { day: "Wednesday", date: "29 Dec, 2024", time: "09:00am - 05:00pm" },
+          { day: "Thursday", date: "29 Dec, 2024", time: "09:00am - 05:00pm" },
+          { day: "Friday", date: "29 Dec, 2024", time: "Closed" },
+          { day: "Saturday", date: "29 Dec, 2024", time: "Closed" },
+        ],
       },
       {
         title: "UI UX DESIGNER",
