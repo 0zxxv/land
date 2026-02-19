@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function AboutUsPage() {
   return (
     <div className="flex h-screen flex-col overflow-y-auto bg-white">
-      <div className="sticky top-0 z-50 bg-white">
+      <div className="sticky top-0 z-50">
         <Header />
       </div>
       <main>

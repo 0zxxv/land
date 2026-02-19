@@ -16,7 +16,7 @@ const ASSETS = {
   /** Values section icons (order: Innovation First, Sovereign Excellence, Client Success, Collaborative Culture, Integrity & Trust, Agile Execution) */
   valuesInnovationFirst: "/assets/innovation first.svg",
   valuesSovereign: "/assets/sovereign excellence.svg",
-  valuesClientSuccess: "/assets/client success.png",
+  valuesClientSuccess: "/assets/client success.svg",
   valuesCollaborative: "/assets/collaborative culture.svg",
   valuesIntegrityTrust: "/assets/integrity & trust.svg",
   valuesAgileExecution: "/assets/agile execution.svg",

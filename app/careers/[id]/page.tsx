@@ -114,7 +114,7 @@ export default async function CareerDetailsPage({ params }: Props) {
 
   return (
     <div className="flex h-screen flex-col bg-white">
-      <div className="sticky top-0 z-50 shrink-0 bg-white">
+      <div className="sticky top-0 z-50 shrink-0">
         <Header />
       </div>
       <main className="min-h-0 flex-1 overflow-y-auto">
