@@ -62,7 +62,7 @@ export const content = {
     ],
     cta: {
       label: "Work With Us",
-      href: "/contact-us",
+      href: "/careers",
     },
   },
 
