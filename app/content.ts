@@ -217,6 +217,37 @@ export const content = {
     linkedInUrl: "https://www.linkedin.com/company/mynt-labs",
   },
 
+  /** Contact Us page – first section (form) + second section (contact info cards) */
+  contactUs: {
+    label: "Contact us",
+    headingLine1: "Get in",
+    headingLine2Italic: "touch",
+    subtitle: "Let's talk about how AI can support your business",
+    form: {
+      nameLabel: "Your name",
+      namePlaceholder: "Enter your name",
+      emailLabel: "Email address",
+      emailPlaceholder: "Enter your email",
+      messageLabel: "your message",
+      messagePlaceholder: "Write something.....",
+      submitLabel: "Submit",
+    },
+    /** Second section: static contact info cards */
+    contactInfo: [
+      { title: "Email", content: "Info@Myntlabs.Com" },
+      { title: "Call Us", content: "+973 7732 9774 (Bahrain)" },
+      {
+        title: "Visit Us",
+        content:
+          "Euro Tower, Office 123, Building 485, Road 1010, Sanabis 410, Bahrain",
+      },
+      {
+        title: "Working Hours",
+        content: "Sunday - Thursday: 9AM - 5PM\nFriday - Saturday: Closed",
+      },
+    ],
+  },
+
   /** Hero section */
   hero: {
     tagline: "Engineering the Future of Business.",
