@@ -248,6 +248,201 @@ export const content = {
     ],
   },
 
+  /** Careers page – first section (hero) + second section (job listings) */
+  careers: {
+    label: "Careers",
+    headlineLine1: "Build the future of",
+    headlineLine2: "AI & ",
+    headlineItalic: "Digital Design",
+    description:
+      "At Mynt Labs, we build practical AI to solve real business problems. Join our team of driven creators.",
+    readMore: "Read More",
+    postedDaysAgo: (days: number) => `Posted ${days} days ago`,
+    pagination: { prev: "Previous", next: "Next" },
+    jobs: [
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+      {
+        title: "UI UX DESIGNER",
+        company: "Google",
+        applicants: 25,
+        tags: ["Remote", "Full time", "Entry Level"],
+        descriptionSnippet:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        salary: "$2500/hr",
+        postedDays: 12,
+      },
+    ],
+  },
+
   /** Hero section */
   hero: {
     tagline: "Engineering the Future of Business.",

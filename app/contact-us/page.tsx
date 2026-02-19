@@ -15,7 +15,9 @@ export const metadata: Metadata = {
 export default function ContactUsPage() {
   return (
     <div className="flex h-screen flex-col overflow-y-auto bg-white">
-      <Header />
+      <div className="sticky top-0 z-50 bg-white">
+        <Header />
+      </div>
       <main className="flex flex-1 flex-col">
         {/* First section – Contact form */}
         <section
