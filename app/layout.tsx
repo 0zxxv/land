@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Newsreader } from "next/font/google";
 import { content } from "./content";
+import { ThemeProvider } from "./_components/theme-provider";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -35,14 +36,21 @@ export const metadata: Metadata = {
   },
 };
 
+const THEME_SCRIPT = `(function(){try{var t=localStorage.getItem('theme');var d=t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme:dark)').matches);if(d)document.documentElement.classList.add('dark')}catch(e){}})()`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${newsreader.variable}`}>
-      <body className="h-screen overflow-hidden font-sans antialiased">{children}</body>
+    <html lang="en" className={`${manrope.variable} ${newsreader.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+      </head>
+      <body className="h-screen overflow-hidden font-sans antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

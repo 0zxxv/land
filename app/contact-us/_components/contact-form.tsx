@@ -49,18 +49,18 @@ export function ContactForm({ form }: { form: FormConfig }) {
   return (
     <form className="flex flex-col gap-8" onSubmit={handleSubmit} noValidate>
       {status === "success" && (
-        <div role="alert" className="rounded-2xl bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+        <div role="alert" className="rounded-2xl bg-emerald-50 dark:bg-emerald-900/30 px-4 py-3 text-sm text-emerald-800 dark:text-emerald-300">
           Thank you. Your message has been sent and we&apos;ll get back to you soon.
         </div>
       )}
       {status === "error" && errorMessage && (
-        <div role="alert" className="rounded-2xl bg-red-50 px-4 py-3 text-sm text-red-800">
+        <div role="alert" className="rounded-2xl bg-red-50 dark:bg-red-900/30 px-4 py-3 text-sm text-red-800 dark:text-red-300">
           {errorMessage}
         </div>
       )}
       <div className="grid gap-8 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
-          <label htmlFor="contact-name" className="text-sm font-medium text-slate-700">
+          <label htmlFor="contact-name" className="text-sm font-medium text-slate-700 dark:text-slate-300">
             {form.nameLabel}
           </label>
           <input
@@ -70,11 +70,11 @@ export function ContactForm({ form }: { form: FormConfig }) {
             placeholder={form.namePlaceholder}
             autoComplete="name"
             maxLength={100}
-            className="rounded-3xl bg-white px-5 py-3 text-base text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
+            className="rounded-3xl bg-white dark:bg-slate-900 px-5 py-3 text-base text-slate-900 dark:text-slate-100 shadow-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="contact-email" className="text-sm font-medium text-slate-700">
+          <label htmlFor="contact-email" className="text-sm font-medium text-slate-700 dark:text-slate-300">
             {form.emailLabel}
           </label>
           <input
@@ -84,12 +84,12 @@ export function ContactForm({ form }: { form: FormConfig }) {
             placeholder={form.emailPlaceholder}
             autoComplete="email"
             maxLength={254}
-            className="rounded-3xl bg-white px-5 py-3 text-base text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
+            className="rounded-3xl bg-white dark:bg-slate-900 px-5 py-3 text-base text-slate-900 dark:text-slate-100 shadow-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
           />
         </div>
       </div>
       <div className="flex flex-col gap-2">
-        <label htmlFor="contact-message" className="text-sm font-medium text-slate-700">
+        <label htmlFor="contact-message" className="text-sm font-medium text-slate-700 dark:text-slate-300">
           {form.messageLabel}
         </label>
         <textarea
@@ -98,14 +98,14 @@ export function ContactForm({ form }: { form: FormConfig }) {
           rows={8}
           placeholder={form.messagePlaceholder}
           maxLength={10000}
-          className="w-full resize-y rounded-2xl bg-white px-5 py-4 text-base text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
+          className="w-full resize-y rounded-2xl bg-white dark:bg-slate-900 px-5 py-4 text-base text-slate-900 dark:text-slate-100 shadow-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
         />
       </div>
       <div className="flex justify-start pt-2">
         <button
           type="submit"
           disabled={status === "sending"}
-          className="rounded-3xl bg-[#123146] px-12 py-2.5 text-base font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70"
+          className="rounded-3xl bg-[#123146] dark:bg-sky-600 px-12 py-2.5 text-base font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] dark:hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70"
         >
           {status === "sending" ? "Sending…" : form.submitLabel}
         </button>

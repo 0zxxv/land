@@ -6,7 +6,7 @@ interface FAQItem {
 }
 
 interface FAQAccordionProps {
-  questions: FAQItem[];
+  questions: readonly FAQItem[];
   activeIndex: number;
   onActiveChange: (index: number) => void;
 }
@@ -27,7 +27,7 @@ export function FAQAccordion({
             className={`w-full rounded-2xl px-5 py-4 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 ${
               isActive
                 ? "bg-black text-white"
-                : "bg-[#F3F4F6] text-black"
+                : "bg-[#F3F4F6] text-black dark:bg-slate-800 dark:text-slate-100"
             }`}
           >
             <div className="flex items-center justify-between gap-2">
@@ -36,7 +36,7 @@ export function FAQAccordion({
               </span>
               <span
                 className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl font-medium text-white sm:h-16 sm:w-16 sm:text-3xl ${
-                  isActive ? "bg-gray-600" : "bg-black"
+                  isActive ? "bg-gray-600 dark:bg-slate-600" : "bg-black"
                 }`}
               >
                 {isActive ? "−" : "+"}

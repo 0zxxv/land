@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function AboutUsPage() {
   return (
-    <div className="flex h-screen flex-col overflow-y-auto bg-white">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-navy">
       <div className="sticky top-0 z-50">
         <Header />
       </div>
@@ -34,12 +34,12 @@ export default function AboutUsPage() {
           aria-labelledby="about-heading"
         >
           <div
-            className="absolute inset-0 -z-0"
+            className="absolute inset-0 -z-0 dark:opacity-10"
             style={DOTS_BG_STYLE}
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-7xl text-center sm:max-w-[90rem]">
-            <p className="mb-8 flex items-center justify-center gap-2 text-lg font-bold text-[#123146]">
+            <p className="mb-8 flex items-center justify-center gap-2 text-lg font-bold text-[#123146] dark:text-sky-400">
               <Image
                 src={assets.iconBlue}
                 alt=""
@@ -51,23 +51,23 @@ export default function AboutUsPage() {
             </p>
             <h1
               id="about-heading"
-              className="mb-10 text-5xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-6xl lg:text-7xl"
+              className="mb-10 text-5xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:text-6xl lg:text-7xl"
             >
               {aboutUs.headlineLines[0]}
               <br />
               {aboutUs.headlineLines[1]}{" "}
-              <span className="font-newsreader font-medium italic text-slate-900">
+              <span className="font-newsreader font-medium italic text-slate-900 dark:text-slate-100">
                 {aboutUs.headlineItalic}
               </span>
             </h1>
-            <p className="mx-auto mb-14 max-w-6xl text-xl leading-relaxed text-slate-600 sm:text-2xl">
+            <p className="mx-auto mb-14 max-w-6xl text-xl leading-relaxed text-slate-600 dark:text-slate-400 sm:text-2xl">
               {aboutUs.descriptionLines[0]}
               <br />
               {aboutUs.descriptionLines[1]}
             </p>
             <Link
               href={aboutUs.cta.href}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-10 py-5 text-xl font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-gray-900 hover:shadow-xl active:scale-[0.98]"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-black dark:bg-white dark:text-black px-10 py-5 text-xl font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-gray-900 dark:hover:bg-slate-200 hover:shadow-xl active:scale-[0.98]"
             >
               {aboutUs.cta.label}
             </Link>
@@ -76,26 +76,26 @@ export default function AboutUsPage() {
 
         {/* Purpose section */}
         <section
-          className="bg-white px-8 pt-10 pb-24 lg:px-16 lg:pt-14 lg:pb-36"
+          className="bg-white dark:bg-navy px-8 pt-10 pb-24 lg:px-16 lg:pt-14 lg:pb-36"
           aria-labelledby="purpose-heading"
         >
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-16">
             <div className="flex flex-col">
               <h2
                 id="purpose-heading"
-                className="mb-10 text-4xl font-medium text-slate-900 sm:text-5xl"
+                className="mb-10 text-4xl font-medium text-slate-900 dark:text-slate-100 sm:text-5xl"
               >
                 {purpose.heading.split(" ")[0]}
                 <br />
-                <span className="font-newsreader italic">
+                <span className="font-newsreader italic dark:text-slate-100">
                   {purpose.headingItalic}.
                 </span>
               </h2>
-              <p className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600">
+              <p className="mb-8 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-400">
                 {purpose.paragraph}
               </p>
               <div className="grid gap-6 sm:grid-cols-2">
-                <article className="rounded-xl bg-slate-100 p-5">
+                <article className="rounded-xl bg-slate-100 dark:bg-slate-800 p-5">
                   <Image
                     src={assets.rocket}
                     alt=""
@@ -103,14 +103,14 @@ export default function AboutUsPage() {
                     height={32}
                     className="mb-3 h-8 w-8 object-contain"
                   />
-                  <h3 className="mb-2 text-base font-bold text-slate-900">
+                  <h3 className="mb-2 text-base font-bold text-slate-900 dark:text-slate-100">
                     {purpose.mission.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-slate-600">
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {purpose.mission.description}
                   </p>
                 </article>
-                <article className="rounded-xl bg-slate-100 p-5">
+                <article className="rounded-xl bg-slate-100 dark:bg-slate-800 p-5">
                   <Image
                     src={assets.eye}
                     alt=""
@@ -118,10 +118,10 @@ export default function AboutUsPage() {
                     height={32}
                     className="mb-3 h-8 w-8 object-contain"
                   />
-                  <h3 className="mb-2 text-base font-bold text-slate-900">
+                  <h3 className="mb-2 text-base font-bold text-slate-900 dark:text-slate-100">
                     {purpose.vision.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-slate-600">
+                  <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                     {purpose.vision.description}
                   </p>
                 </article>
@@ -141,25 +141,25 @@ export default function AboutUsPage() {
 
         {/* Values section */}
         <section
-          className="bg-white px-8 py-16 pb-24 lg:px-16 lg:py-20 lg:pb-36"
+          className="bg-white dark:bg-navy px-8 py-16 pb-24 lg:px-16 lg:py-20 lg:pb-36"
           aria-labelledby="values-heading"
         >
           <div className="mx-auto max-w-6xl">
             <div className="mb-5 text-center">
               <h2
                 id="values-heading"
-                className="mb-1 text-4xl font-bold text-slate-900 sm:text-5xl"
+                className="mb-1 text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl"
               >
                 {values.headingLine1}
               </h2>
-              <p className="text-4xl font-bold text-slate-900 sm:text-5xl">
+              <p className="text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl">
                 {values.headingLine2.split(" ")[0]}{" "}
-                <span className="font-newsreader font-medium italic">
+                <span className="font-newsreader font-medium italic dark:text-slate-100">
                   {values.headingLine2.split(" ").slice(1).join(" ")}
                 </span>
               </p>
             </div>
-            <p className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-slate-600 sm:text-xl">
+            <p className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl">
               {values.subtitleLines[0]}
               <br />
               {values.subtitleLines[1]}
@@ -171,7 +171,7 @@ export default function AboutUsPage() {
                 return (
                   <article
                     key={card.title}
-                    className="min-h-[250px] rounded-xl bg-slate-100 p-8"
+                    className="min-h-[250px] rounded-xl bg-slate-100 dark:bg-slate-800 p-8"
                   >
                     {iconSrc && (
                       <Image
@@ -182,14 +182,14 @@ export default function AboutUsPage() {
                         className="mb-8 h-10 w-10 object-contain"
                       />
                     )}
-                    <h3 className="mb-2 text-xl font-bold leading-tight text-slate-900">
+                    <h3 className="mb-2 text-xl font-bold leading-tight text-slate-900 dark:text-slate-100">
                       {formatCardTitleLines(card.title).map((line, j) => (
                       <span key={j} className="block">
                         {line}
                       </span>
                     ))}
                     </h3>
-                    <p className="text-sm leading-relaxed text-slate-600">
+                    <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
                       {card.description}
                     </p>
                   </article>
@@ -201,25 +201,25 @@ export default function AboutUsPage() {
 
         {/* Regional Presence section */}
         <section
-          className="bg-white px-8 py-16 pb-24 lg:px-16 lg:py-20 lg:pb-36"
+          className="bg-white dark:bg-navy px-8 py-16 pb-24 lg:px-16 lg:py-20 lg:pb-36"
           aria-labelledby="regional-heading"
         >
           <div className="mx-auto max-w-6xl">
             <div className="mb-5 text-center">
               <h2
                 id="regional-heading"
-                className="mb-1 text-4xl font-bold text-slate-900 sm:text-5xl"
+                className="mb-1 text-4xl font-bold text-slate-900 dark:text-slate-100 sm:text-5xl"
               >
                 {regionalPresence.headingLine1}{" "}
-                <span className="font-newsreader font-medium italic">
+                <span className="font-newsreader font-medium italic dark:text-slate-100">
                   {regionalPresence.headingLine2}
                 </span>
               </h2>
             </div>
-            <p className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-slate-600 sm:text-xl">
+            <p className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-slate-600 dark:text-slate-400 sm:text-xl">
               {regionalPresence.subtitle}
             </p>
-            <div className="overflow-hidden rounded-2xl bg-[#F3F4F6] shadow-lg">
+            <div className="overflow-hidden rounded-2xl bg-[#F3F4F6] dark:bg-slate-800 shadow-lg">
               <div className="relative px-6 pt-6">
                 <Image
                   src={assets.manama}
@@ -230,10 +230,10 @@ export default function AboutUsPage() {
                 />
               </div>
               <div className="px-6 pb-8 pt-6">
-                <h3 className="mb-1 text-xl font-bold text-slate-900">
+                <h3 className="mb-1 text-xl font-bold text-slate-900 dark:text-slate-100">
                   {regionalPresence.location.city}
                 </h3>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-600 dark:text-slate-400">
                   {regionalPresence.location.description}
                 </p>
               </div>

@@ -61,7 +61,7 @@ export function Footer() {
         </p>
         <Link
           href={footer.cta.buttonHref}
-          className="rounded-lg bg-white px-8 py-4 text-lg font-medium text-black shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-slate-100"
+          className="rounded-lg bg-white px-8 py-4 text-lg font-medium text-black shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-slate-100 dark:bg-slate-100 dark:hover:bg-slate-200"
         >
           {footer.cta.buttonLabel}
         </Link>

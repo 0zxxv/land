@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactUsPage() {
   return (
-    <div className="flex h-screen flex-col overflow-y-auto bg-white">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-navy">
       <div className="sticky top-0 z-50">
         <Header />
       </div>
@@ -25,7 +25,7 @@ export default function ContactUsPage() {
           aria-labelledby="contact-heading"
         >
           <div className="mx-auto w-full max-w-4xl">
-            <p className="mb-5 flex items-center justify-center gap-2 text-lg font-bold text-[#123146]">
+            <p className="mb-5 flex items-center justify-center gap-2 text-lg font-bold text-[#123146] dark:text-sky-400">
               <Image
                 src={assets.iconBlue}
                 alt=""
@@ -37,18 +37,18 @@ export default function ContactUsPage() {
             </p>
             <h1
               id="contact-heading"
-              className="mb-4 text-center text-4xl font-semibold text-slate-900 sm:text-5xl"
+              className="mb-4 text-center text-4xl font-semibold text-slate-900 dark:text-slate-100 sm:text-5xl"
             >
               {contactUs.headingLine1}{" "}
               <span className="font-newsreader font-medium italic">
                 {contactUs.headingLine2Italic}
               </span>
             </h1>
-            <p className="mb-10 text-center text-lg text-slate-600">
+            <p className="mb-10 text-center text-lg text-slate-600 dark:text-slate-400">
               {contactUs.subtitle}
             </p>
 
-            <div className="rounded-3xl bg-[#F5F5F5] p-10 shadow-lg sm:p-12">
+            <div className="rounded-3xl bg-[#F5F5F5] dark:bg-slate-800 p-10 shadow-lg sm:p-12">
               <ContactForm form={contactUs.form} />
             </div>
           </div>
@@ -62,12 +62,12 @@ export default function ContactUsPage() {
               {contactUs.contactInfo.map((card) => (
                 <div
                   key={card.title}
-                  className="flex min-h-[200px] min-w-0 flex-col rounded-2xl bg-[#F1F5F9] p-6 text-slate-900 shadow-sm"
+                  className="flex min-h-[200px] min-w-0 flex-col rounded-2xl bg-[#F1F5F9] dark:bg-slate-800 p-6 text-slate-900 shadow-sm"
                 >
-                  <h3 className="text-lg font-semibold text-slate-900">
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
                     {card.title}
                   </h3>
-                  <p className="mt-auto whitespace-pre-line text-base leading-relaxed text-slate-900">
+                  <p className="mt-auto whitespace-pre-line text-base leading-relaxed text-slate-900 dark:text-slate-300">
                     {card.content}
                   </p>
                 </div>

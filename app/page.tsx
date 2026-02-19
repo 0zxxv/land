@@ -4,7 +4,7 @@ import { VideoBackground } from "./_components/video-background";
 
 export default function Home() {
   return (
-    <main className="relative h-screen w-full overflow-hidden bg-cream-dark">
+    <main className="relative h-screen w-full overflow-hidden bg-cream-dark dark:bg-navy">
       <div className="relative h-full w-full">
         <VideoBackground />
         <div className="relative z-10 flex h-full flex-col">
