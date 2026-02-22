@@ -14,7 +14,7 @@ export function Footer() {
       >
         {/* Grid top-left */}
         <div
-          className="pointer-events-none absolute left-0 top-0 z-0 h-[280px] w-[280px] sm:h-[380px] sm:w-[380px] lg:h-[480px] lg:w-[480px]"
+          className="pointer-events-none absolute left-0 top-0 z-0 h-[160px] w-[160px] sm:h-[280px] sm:w-[280px] md:h-[380px] md:w-[380px] lg:h-[480px] lg:w-[480px]"
           style={{
             backgroundImage: `url('${encodeURI(assets.footerGridTop)}')`,
             backgroundRepeat: "no-repeat",
@@ -25,7 +25,7 @@ export function Footer() {
         />
         {/* Grid bottom-right */}
         <div
-          className="pointer-events-none absolute bottom-0 right-0 z-0 h-[280px] w-[280px] sm:h-[380px] sm:w-[380px] lg:h-[480px] lg:w-[480px]"
+          className="pointer-events-none absolute bottom-0 right-0 z-0 h-[160px] w-[160px] sm:h-[280px] sm:w-[280px] md:h-[380px] md:w-[380px] lg:h-[480px] lg:w-[480px]"
           style={{
             backgroundImage: `url('${encodeURI(assets.footerGridDown)}')`,
             backgroundRepeat: "no-repeat",
