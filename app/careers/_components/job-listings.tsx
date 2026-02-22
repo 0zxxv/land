@@ -66,7 +66,7 @@ export function JobListings({
 
   return (
     <>
-      <div className="mb-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-8 grid gap-4 sm:mb-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         {jobsOnPage.map((job, index) => {
           const globalIndex = start + index;
           const isSelected = selectedGlobalIndex === globalIndex;
@@ -82,39 +82,39 @@ export function JobListings({
                   setSelectedIndex(index);
                 }
               }}
-              className={`flex min-h-[260px] cursor-pointer flex-col rounded-2xl p-6 shadow-sm transition-colors ${
+              className={`flex min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:min-h-[260px] sm:rounded-2xl sm:p-6 ${
                 isSelected
                   ? "bg-[#123146] text-white"
                   : "bg-[#F8FAFC] text-slate-900"
               }`}
             >
-              <div className="mb-4 flex items-center gap-3">
+              <div className="mb-3 flex items-center justify-center gap-2 sm:mb-4 sm:justify-start sm:gap-3">
                 <Image
                   src={isSelected ? iconWhite : iconBlue}
                   alt=""
                   width={32}
                   height={32}
-                  className="h-8 w-8 shrink-0 object-contain"
+                  className="h-6 w-6 shrink-0 object-contain sm:h-8 sm:w-8"
                 />
                 <h2
                   id={index === 0 ? "jobs-heading" : undefined}
-                  className="text-xl font-bold"
+                  className="text-center text-base font-bold sm:text-left sm:text-xl"
                 >
                   {job.title}
                 </h2>
               </div>
               <p
-                className={`mb-3 text-sm ${
+                className={`mb-2 text-center text-xs sm:mb-3 sm:text-left sm:text-sm ${
                   isSelected ? "text-white/90" : "text-slate-600"
                 }`}
               >
                 {job.company} • {job.applicants} Applicants
               </p>
-              <div className="mb-4 flex flex-wrap gap-2">
+              <div className="mb-3 flex flex-wrap justify-center gap-1.5 sm:mb-4 sm:justify-start sm:gap-2">
                 {job.tags.map((tag) => (
                   <span
                     key={tag}
-                    className={`rounded-full px-3 py-1 text-xs font-medium ${
+                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-medium sm:px-3 sm:py-1 sm:text-xs ${
                       isSelected
                         ? "bg-white text-black"
                         : "bg-[#EBF5FF] text-black"
@@ -125,7 +125,7 @@ export function JobListings({
                 ))}
               </div>
               <p
-                className={`mb-3 flex-1 text-sm leading-relaxed ${
+                className={`mb-2 flex-1 text-center text-xs leading-relaxed sm:mb-3 sm:text-left sm:text-sm ${
                   isSelected ? "text-white/90" : "text-slate-600"
                 }`}
               >
@@ -134,7 +134,7 @@ export function JobListings({
               <Link
                 href={`/careers/${globalIndex}`}
                 onClick={(e) => e.stopPropagation()}
-                className={`mb-4 inline-block text-sm font-medium underline underline-offset-2 ${
+                className={`mb-3 inline-block text-center text-xs font-medium underline underline-offset-2 sm:mb-4 sm:text-left sm:text-sm ${
                   isSelected
                     ? "text-white hover:text-white/90"
                     : "text-[#123146] hover:text-[#0f2942]"
@@ -142,7 +142,7 @@ export function JobListings({
               >
                 {readMore}
               </Link>
-              <div className="mt-auto flex items-center justify-between border-t pt-4 text-sm">
+              <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs sm:pt-4 sm:text-sm">
                 <span
                   className={
                     isSelected ? "text-white/90" : "text-slate-700"
@@ -166,14 +166,14 @@ export function JobListings({
 
       {/* Pagination */}
       <nav
-        className="flex items-center justify-center gap-2"
+        className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2"
         aria-label="Job listings pagination"
       >
         <button
           type="button"
           onClick={goPrev}
           disabled={currentPage <= 1}
-          className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 disabled:opacity-50"
+          className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 disabled:opacity-50"
           aria-label="Previous page"
         >
           &lt;
@@ -184,7 +184,7 @@ export function JobListings({
                 key={page}
                 type="button"
                 onClick={() => goToPage(page)}
-                className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
+                className={`flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg text-sm transition-colors sm:text-base ${
                   currentPage === page
                     ? "bg-[#123146] text-white"
                     : "bg-slate-100 text-slate-700 hover:bg-slate-200"
@@ -206,7 +206,7 @@ export function JobListings({
                 page === "ellipsis" ? (
                   <span
                     key={`ellipsis-${i}`}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 px-2 text-slate-500"
+                    className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 px-2 text-slate-500"
                   >
                     …
                   </span>
@@ -215,7 +215,7 @@ export function JobListings({
                     key={page}
                     type="button"
                     onClick={() => goToPage(page)}
-                    className={`flex h-10 w-10 items-center justify-center rounded-lg transition-colors ${
+                    className={`flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg text-sm transition-colors sm:text-base ${
                       currentPage === page
                         ? "bg-[#123146] text-white"
                         : "bg-slate-100 text-slate-700 hover:bg-slate-200"
@@ -232,7 +232,7 @@ export function JobListings({
           type="button"
           onClick={goNext}
           disabled={currentPage >= totalPages}
-          className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 disabled:opacity-50"
+          className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 disabled:opacity-50"
           aria-label="Next page"
         >
           &gt;

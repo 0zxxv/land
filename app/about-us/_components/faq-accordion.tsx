@@ -24,18 +24,18 @@ export function FAQAccordion({
           <button
             key={index}
             onClick={() => onActiveChange(index)}
-            className={`w-full rounded-2xl px-5 py-4 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 ${
+            className={`flex min-h-[52px] w-full items-center rounded-xl px-4 py-3 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 sm:min-h-0 sm:rounded-2xl sm:px-5 sm:py-4 ${
               isActive
                 ? "bg-black text-white"
                 : "bg-[#F3F4F6] text-black"
             }`}
           >
-            <div className="flex items-center justify-between gap-2">
-              <span className="font-medium">
+            <div className="flex w-full items-center justify-between gap-2">
+              <span className="text-sm font-medium sm:text-base">
                 {index + 1}. {item.question}
               </span>
               <span
-                className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl font-medium text-white sm:h-16 sm:w-16 sm:text-3xl ${
+                className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-medium text-white sm:h-14 sm:w-14 sm:rounded-xl sm:text-2xl md:h-16 md:w-16 md:text-3xl ${
                   isActive ? "bg-gray-600" : "bg-black"
                 }`}
               >

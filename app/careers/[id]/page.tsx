@@ -119,13 +119,13 @@ export default async function CareerDetailsPage({ params }: Props) {
       </div>
       <main className="min-h-0 flex-1 overflow-y-auto">
         <section
-          className="px-8 py-12 pb-24 lg:px-16 lg:py-16 lg:pb-36"
+          className="px-4 py-8 pb-16 sm:px-8 sm:py-12 sm:pb-24 lg:px-16 lg:py-16 lg:pb-36"
           aria-labelledby="job-title"
         >
           <div className="mx-auto max-w-3xl">
             <Link
               href="/careers"
-              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#123146] hover:underline"
+              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline sm:mb-8 sm:text-sm"
             >
               ← Back to careers
             </Link>
@@ -133,13 +133,13 @@ export default async function CareerDetailsPage({ params }: Props) {
             {/* Job title – large, bold, uppercase */}
             <h1
               id="job-title"
-              className="mb-3 text-3xl font-bold uppercase tracking-tight text-slate-900 sm:text-4xl"
+              className="mb-2 text-xl font-bold uppercase tracking-tight text-slate-900 sm:mb-3 sm:text-3xl md:text-4xl"
             >
               {job.title}
             </h1>
 
             {/* Contact details: location and date */}
-            <div className="mb-10 flex flex-wrap items-center gap-4 text-base text-slate-600">
+            <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 sm:mb-10 sm:justify-start sm:gap-4 sm:text-base">
               {hasLocationAndDate ? (
                 <>
                   <span className="flex items-center gap-1.5">

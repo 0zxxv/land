@@ -10,6 +10,7 @@ const ASSETS = {
   arrowWhite: "/assets/arrow-white.png",
   arrowBlack: "/assets/arrow-black.png",
   video: "/assets/bg-video.mp4",
+  videoMobile: "/assets/bg-video-mobile.mp4",
   rocket: "/assets/rocket.svg",
   eye: "/assets/eye.svg",
   criticalError: "/assets/critical-error.svg",

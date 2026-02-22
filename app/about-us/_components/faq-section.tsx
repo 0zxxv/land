@@ -16,33 +16,33 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
 
   return (
     <section
-      className="bg-white px-8 py-16 pb-24 lg:px-16 lg:py-20 lg:pb-36"
+      className="bg-white px-4 py-12 pb-16 sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
       aria-labelledby="faq-heading"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-5 flex items-center justify-center gap-2 text-lg font-bold text-[#123146] sm:text-xl">
+        <div className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] sm:mb-5 sm:text-lg md:text-xl">
           <Image
             src={assets.iconBlue}
             alt=""
             width={24}
             height={24}
-            className="h-6 w-6 object-contain sm:h-7 sm:w-7"
+            className="h-5 w-5 object-contain sm:h-6 sm:w-6 md:h-7 md:w-7"
           />
           {faq.label}
         </div>
         <h2
           id="faq-heading"
-          className="mb-4 text-center text-4xl font-bold text-slate-900 sm:text-5xl"
+          className="mb-3 text-center text-2xl font-bold text-slate-900 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl"
         >
           {faq.headingLine1}
           <br />
           {faq.headingLine2Regular}
           <span className="font-newsreader font-medium italic">{faq.headingLine2Italic}</span>
         </h2>
-        <p className="mx-auto mb-12 max-w-2xl text-center text-lg leading-relaxed text-slate-600 sm:text-xl">
+        <p className="mx-auto mb-8 max-w-2xl text-center text-sm leading-relaxed text-slate-600 sm:mb-12 sm:text-base md:text-lg lg:text-xl">
           {faq.subtitle}
         </p>
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
+        <div className="grid gap-6 lg:grid-cols-2 lg:items-stretch lg:gap-8">
           <div className="flex flex-col">
             <FAQAccordion
               questions={faq.questions}
@@ -50,37 +50,37 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
               onActiveChange={setActiveIndex}
             />
           </div>
-          <div className="relative flex min-h-[320px] flex-col overflow-hidden rounded-2xl bg-[#F3F4F6] shadow-lg lg:min-h-0">
+          <div className="relative flex min-h-[280px] flex-col overflow-hidden rounded-xl bg-[#F3F4F6] shadow-lg sm:min-h-[320px] sm:rounded-2xl lg:min-h-0">
             <div className="absolute right-0 top-0 z-0">
               <Image
                 src={assets.jellyLogo}
                 alt=""
                 width={360}
                 height={360}
-                className="h-56 w-56 object-contain object-right-top sm:h-64 sm:w-64 lg:h-72 lg:w-72"
+                className="h-40 w-40 object-contain object-right-top sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
               />
             </div>
-            <div className="relative z-10 mt-auto flex w-full min-w-0 flex-col px-6 pb-8 pt-6 pr-[7rem] sm:pr-[8rem] lg:pr-[9rem]">
-              <h3 className="mb-3 text-xl font-bold text-slate-900 sm:text-2xl">
+            <div className="relative z-10 mt-auto flex w-full min-w-0 flex-col px-4 pb-6 pt-4 pr-[5rem] sm:px-6 sm:pb-8 sm:pt-6 sm:pr-[7rem] md:pr-[8rem] lg:pr-[9rem]">
+              <h3 className="mb-2 text-base font-bold text-slate-900 sm:mb-3 sm:text-xl md:text-2xl">
                 Question Answer:
               </h3>
-              <p className="mb-6 max-w-full text-base leading-relaxed text-slate-600 sm:text-lg">
+              <p className="mb-4 max-w-full text-xs leading-relaxed text-slate-600 sm:mb-6 sm:text-sm md:text-base lg:text-lg">
                 {faq.questions[activeIndex].answer}
               </p>
               <Link
                 href={faq.cta.href}
                 className="inline-flex w-fit items-center gap-0 overflow-hidden rounded-lg bg-black outline-none transition-all duration-200 hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
               >
-                <span className="px-6 py-3 text-sm font-medium text-white">
+                <span className="px-4 py-2.5 text-xs font-medium text-white sm:px-6 sm:py-3 sm:text-sm">
                   {faq.cta.label}
                 </span>
-                <span className="flex h-full items-center justify-center bg-gray-600 px-3 py-3">
+                <span className="flex h-full items-center justify-center bg-gray-600 px-2.5 py-2.5 sm:px-3 sm:py-3">
                   <Image
                     src={assets.arrowWhite}
                     alt=""
                     width={16}
                     height={16}
-                    className="h-4 w-4 rotate-45 object-contain"
+                    className="h-3.5 w-3.5 rotate-45 object-contain sm:h-4 sm:w-4"
                   />
                 </span>
               </Link>
