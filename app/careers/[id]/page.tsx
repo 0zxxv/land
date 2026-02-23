@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Footer } from "../../_components/footer";
 import { Header } from "../../_components/header";
 import { content } from "../../content";
+import { daysAgo } from "../../lib/utils";
 
 const { careers } = content;
 
@@ -112,7 +113,7 @@ export default async function CareerDetailsPage({ params }: Props) {
   const hasShiftDetails = Array.isArray(jobWithExtras.shiftDetails) && jobWithExtras.shiftDetails.length > 0;
 
   return (
-    <div className="flex h-screen flex-col bg-white dark:bg-navy">
+    <div className="flex h-screen flex-col bg-white dark:bg-black">
       <div className="sticky top-0 z-50 shrink-0">
         <Header />
       </div>
@@ -124,7 +125,7 @@ export default async function CareerDetailsPage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <Link
               href="/careers"
-              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-sky-400 sm:mb-8 sm:text-sm"
+              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-[#F3F4F6] sm:mb-8 sm:text-sm"
             >
               ← Back to careers
             </Link>
@@ -141,7 +142,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                 href={(job as { applyUrl?: string }).applyUrl ?? "https://indeed.com"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-sky-600 dark:hover:bg-sky-500 sm:px-6 sm:py-2.5 sm:text-base"
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white sm:px-6 sm:py-2.5 sm:text-base"
               >
                 Apply Now
               </a>
@@ -163,7 +164,7 @@ export default async function CareerDetailsPage({ params }: Props) {
               ) : (
                 <span className="flex items-center gap-1">
                   <ClockIcon className="h-4 w-4 shrink-0" />
-                  Posted {job.postedDays} days ago
+                  Posted {jobWithExtras.postedDate ? daysAgo(jobWithExtras.postedDate) : job.postedDays} days ago
                 </span>
               )}
             </div>
@@ -177,7 +178,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-sm text-slate-600 dark:text-slate-400">Job type</span>
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F5F9] px-4 py-1.5 text-sm font-medium text-slate-900 dark:bg-slate-800 dark:text-slate-100">
-                    <ClockIcon className="h-4 w-4 shrink-0 text-slate-700" />
+                    <ClockIcon className="h-4 w-4 shrink-0 text-slate-700 dark:text-slate-100" />
                     {jobWithExtras.jobType}
                   </span>
                 </div>

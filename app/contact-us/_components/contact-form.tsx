@@ -119,7 +119,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
         <button
           type="submit"
           disabled={pending}
-          className="min-h-[44px] rounded-2xl bg-[#123146] px-8 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70 dark:bg-sky-600 dark:hover:bg-sky-500 dark:focus:ring-sky-500 sm:rounded-3xl sm:px-12 sm:text-base"
+          className="min-h-[44px] rounded-2xl bg-[#123146] px-8 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70 dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white dark:focus:ring-[#F3F4F6] sm:rounded-3xl sm:px-12 sm:text-base"
         >
           {pending ? "Sending\u2026" : form.submitLabel}
         </button>

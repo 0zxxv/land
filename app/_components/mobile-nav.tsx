@@ -143,7 +143,7 @@ export function MobileNav() {
               <Link
                 href={headerCta.href}
                 onClick={close}
-                className="mt-4 flex min-h-[48px] items-center justify-center rounded-xl bg-[#123146] px-4 py-3 text-center text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-sky-600 dark:hover:bg-sky-500 sm:text-base"
+                className="mt-4 flex min-h-[48px] items-center justify-center rounded-xl bg-[#123146] px-4 py-3 text-center text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white sm:text-base"
               >
                 {headerCta.label}
               </Link>

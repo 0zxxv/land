@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
+import { daysAgo } from "../../lib/utils";
 const JOBS_PER_PAGE = 6;
 
 type Job = {
@@ -12,6 +13,7 @@ type Job = {
   readonly descriptionSnippet: string;
   readonly salary: string;
   readonly postedDays: number;
+  readonly postedDate?: string;
 };
 
 function ClockIcon({ className }: { className?: string }) {
@@ -83,7 +85,7 @@ export function JobListings({
               }}
               className={`flex w-full min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:w-[calc(50%-0.75rem)] sm:min-h-[260px] sm:rounded-2xl sm:p-6 lg:w-[calc(33.333%-1rem)] ${
                 isSelected
-                  ? "bg-[#123146] text-white"
+                  ? "bg-[#123146] text-white dark:bg-[#F3F4F6] dark:text-black"
                   : "bg-[#F8FAFC] text-slate-900 dark:bg-slate-800 dark:text-slate-100"
               }`}
             >
@@ -93,7 +95,14 @@ export function JobListings({
                   alt=""
                   width={32}
                   height={32}
-                  className="h-6 w-6 shrink-0 object-contain sm:h-8 sm:w-8"
+                  className={`h-6 w-6 shrink-0 object-contain sm:h-8 sm:w-8 ${isSelected ? "dark:hidden" : "dark:hidden"}`}
+                />
+                <Image
+                  src={isSelected ? iconBlue : iconWhite}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="hidden h-6 w-6 shrink-0 object-contain dark:block sm:h-8 sm:w-8"
                 />
                 <h2
                   id={index === 0 ? "jobs-heading" : undefined}
@@ -104,7 +113,7 @@ export function JobListings({
               </div>
               <p
                 className={`mb-2 text-center text-xs sm:mb-3 sm:text-left sm:text-sm ${
-                  isSelected ? "text-white/90" : "text-slate-600 dark:text-slate-400"
+                  isSelected ? "text-white/90 dark:text-black/70" : "text-slate-600 dark:text-slate-400"
                 }`}
               >
                 {job.company}
@@ -115,7 +124,7 @@ export function JobListings({
                     key={tag}
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-medium sm:px-3 sm:py-1 sm:text-xs ${
                       isSelected
-                        ? "bg-white text-black"
+                        ? "bg-white text-black dark:bg-black dark:text-white"
                         : "bg-[#EBF5FF] text-black dark:bg-sky-900/30 dark:text-sky-300"
                     }`}
                   >
@@ -125,7 +134,7 @@ export function JobListings({
               </div>
               <p
                 className={`mb-2 flex-1 text-center text-xs leading-relaxed sm:mb-3 sm:text-left sm:text-sm ${
-                  isSelected ? "text-white/90" : "text-slate-600 dark:text-slate-400"
+                  isSelected ? "text-white/90 dark:text-black/70" : "text-slate-600 dark:text-slate-400"
                 }`}
               >
                 {job.descriptionSnippet}
@@ -135,7 +144,7 @@ export function JobListings({
                 onClick={(e) => e.stopPropagation()}
                 className={`mb-3 inline-block text-center text-xs font-medium underline underline-offset-2 sm:mb-4 sm:text-left sm:text-sm ${
                   isSelected
-                    ? "text-white hover:text-white/90"
+                    ? "text-white hover:text-white/90 dark:text-black dark:hover:text-black/80"
                     : "text-[#123146] hover:text-[#0f2942] dark:text-sky-400 dark:hover:text-sky-300"
                 }`}
               >
@@ -144,18 +153,18 @@ export function JobListings({
               <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs dark:border-slate-600 sm:pt-4 sm:text-sm">
                 <span
                   className={
-                    isSelected ? "text-white/90" : "text-slate-700 dark:text-slate-300"
+                    isSelected ? "text-white/90 dark:text-black/70" : "text-slate-700 dark:text-slate-300"
                   }
                 >
                   {job.salary}
                 </span>
                 <span
                   className={`flex items-center gap-1 ${
-                    isSelected ? "text-white/80" : "text-slate-500 dark:text-slate-400"
+                    isSelected ? "text-white/80 dark:text-black/60" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   <ClockIcon className="h-4 w-4" />
-                  Posted {job.postedDays} days ago
+                  Posted {job.postedDate ? daysAgo(job.postedDate) : job.postedDays} days ago
                 </span>
               </div>
             </article>

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactUsPage() {
   return (
-    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-navy">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-black">
       <div className="sticky top-0 z-50">
         <Header />
       </div>
@@ -25,13 +25,20 @@ export default function ContactUsPage() {
           aria-labelledby="contact-heading"
         >
           <div className="mx-auto w-full max-w-4xl">
-            <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-sky-400 sm:mb-5 sm:text-lg">
+            <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-5 sm:text-lg">
               <Image
                 src={assets.iconBlue}
                 alt=""
                 width={24}
                 height={24}
-                className="h-5 w-5 object-contain sm:h-6 sm:w-6"
+                className="h-5 w-5 object-contain dark:hidden sm:h-6 sm:w-6"
+              />
+              <Image
+                src={assets.iconWhite}
+                alt=""
+                width={24}
+                height={24}
+                className="hidden h-5 w-5 object-contain dark:block sm:h-6 sm:w-6"
               />
               {contactUs.label}
             </p>

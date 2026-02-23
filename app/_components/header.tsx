@@ -6,15 +6,12 @@ import { usePathname } from "next/navigation";
 import { content } from "../content";
 import { MobileNav } from "./mobile-nav";
 import { ThemeToggle } from "./theme-toggle";
-import { useTheme } from "./theme-provider";
 
 const { navLinks, headerCta, assets } = content;
 
 export function Header() {
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
 
   return (
     <div className="flex justify-center px-3 pt-3 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8">
@@ -28,11 +25,19 @@ export function Header() {
         <div className="absolute left-2 top-1/2 flex h-24 w-24 -translate-y-1/2 shrink-0 items-center justify-center sm:left-3 sm:h-32 sm:w-32 lg:left-4">
           <Link href="/" className="block">
             <Image
-              src={isDark ? assets.logoWhite : assets.logo}
+              src={assets.logo}
               alt="Company logo"
               width={128}
               height={128}
-              className="h-full w-full object-contain"
+              className="h-full w-full object-contain dark:hidden"
+              priority
+            />
+            <Image
+              src={assets.logoWhite}
+              alt="Company logo"
+              width={128}
+              height={128}
+              className="hidden h-full w-full object-contain dark:block"
               priority
             />
           </Link>
@@ -63,7 +68,7 @@ export function Header() {
           <ThemeToggle />
           <Link
             href={headerCta.href}
-            className="hidden items-center gap-2 rounded-lg bg-[#123146] px-6 py-3 text-base font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:brightness-110 dark:bg-sky-600 dark:hover:bg-sky-500 sm:flex"
+            className="hidden items-center gap-2 rounded-lg bg-[#123146] px-6 py-3 text-base font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:brightness-110 dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white sm:flex"
           >
             {headerCta.label}
             <Image
@@ -71,7 +76,14 @@ export function Header() {
               alt=""
               width={20}
               height={20}
-              className="h-5 w-5 rotate-45 object-contain"
+              className="h-5 w-5 rotate-45 object-contain dark:hidden"
+            />
+            <Image
+              src={assets.arrowBlack}
+              alt=""
+              width={20}
+              height={20}
+              className="hidden h-5 w-5 -rotate-45 object-contain dark:block"
             />
           </Link>
           <MobileNav />

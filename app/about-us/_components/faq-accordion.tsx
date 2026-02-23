@@ -26,7 +26,7 @@ export function FAQAccordion({
             onClick={() => onActiveChange(index)}
             className={`flex min-h-[52px] w-full items-center rounded-xl px-4 py-3 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 sm:min-h-0 sm:rounded-2xl sm:px-5 sm:py-4 ${
               isActive
-                ? "bg-black text-white dark:bg-sky-600"
+                ? "bg-black text-white dark:bg-[#F3F4F6] dark:text-black"
                 : "bg-[#F3F4F6] text-black dark:bg-slate-800 dark:text-slate-100"
             }`}
           >
@@ -36,7 +36,7 @@ export function FAQAccordion({
               </span>
               <span
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-medium text-white sm:h-14 sm:w-14 sm:rounded-xl sm:text-2xl md:h-16 md:w-16 md:text-3xl ${
-                  isActive ? "bg-gray-600 dark:bg-sky-700" : "bg-black dark:bg-slate-700"
+                  isActive ? "bg-gray-600 dark:bg-black dark:text-white" : "bg-black dark:bg-[#F3F4F6] dark:text-black"
                 }`}
               >
                 {isActive ? "−" : "+"}

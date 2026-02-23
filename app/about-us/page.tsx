@@ -15,6 +15,12 @@ const DOTS_BG_STYLE = {
   transform: "rotate(180deg)",
 };
 
+const DOTS_BG_STYLE_DARK = {
+  backgroundImage: "url('/assets/bg-dots-white.svg')",
+  backgroundRepeat: "repeat" as const,
+  transform: "rotate(180deg)",
+};
+
 export const metadata: Metadata = {
   title: "About Us | MyntLabs",
   description: "Learn more about MyntLabs.",
@@ -22,29 +28,41 @@ export const metadata: Metadata = {
 
 export default function AboutUsPage() {
   return (
-    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-navy">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-black">
       <div className="sticky top-0 z-50">
         <Header />
       </div>
       <main>
         {/* Hero section */}
         <section
-          className="relative flex flex-col items-center justify-center px-4 pt-8 pb-16 sm:px-8 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-36"
+          className="relative flex flex-col items-center justify-center bg-white px-4 pt-8 pb-16 dark:bg-black sm:px-8 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-36"
           aria-labelledby="about-heading"
         >
           <div
-            className="absolute inset-0 -z-0 bg-white dark:bg-transparent dark:opacity-10"
+            className="absolute inset-0 bg-white dark:hidden"
             style={DOTS_BG_STYLE}
             aria-hidden
           />
+          <div
+            className="absolute inset-0 hidden dark:block dark:opacity-100"
+            style={DOTS_BG_STYLE_DARK}
+            aria-hidden
+          />
           <div className="relative z-10 mx-auto max-w-7xl text-center sm:max-w-[90rem]">
-            <p className="mb-5 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-sky-400 sm:mb-8 sm:text-lg">
+            <p className="mb-5 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-8 sm:text-lg">
               <Image
                 src={assets.iconBlue}
                 alt=""
                 width={24}
                 height={24}
-                className="h-5 w-5 object-contain sm:h-6 sm:w-6"
+                className="h-5 w-5 object-contain dark:hidden sm:h-6 sm:w-6"
+              />
+              <Image
+                src={assets.iconWhite}
+                alt=""
+                width={24}
+                height={24}
+                className="hidden h-5 w-5 object-contain dark:block sm:h-6 sm:w-6"
               />
               {aboutUs.label}
             </p>
@@ -75,7 +93,7 @@ export default function AboutUsPage() {
 
         {/* Purpose section */}
         <section
-          className="bg-white px-4 pt-8 pb-16 dark:bg-navy sm:px-8 sm:pt-10 sm:pb-24 lg:px-16 lg:pt-14 lg:pb-36"
+          className="bg-white px-4 pt-8 pb-16 dark:bg-black sm:px-8 sm:pt-10 sm:pb-24 lg:px-16 lg:pt-14 lg:pb-36"
           aria-labelledby="purpose-heading"
         >
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-16">
@@ -100,7 +118,14 @@ export default function AboutUsPage() {
                     alt=""
                     width={32}
                     height={32}
-                    className="mb-2 h-7 w-7 object-contain sm:mb-3 sm:h-8 sm:w-8"
+                    className="mb-2 h-7 w-7 object-contain dark:hidden sm:mb-3 sm:h-8 sm:w-8"
+                  />
+                  <Image
+                    src={assets.rocketWhite}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="mb-2 hidden h-7 w-7 object-contain dark:block sm:mb-3 sm:h-8 sm:w-8"
                   />
                   <h3 className="mb-1.5 text-sm font-bold text-slate-900 dark:text-slate-100 sm:mb-2 sm:text-base">
                     {purpose.mission.title}
@@ -115,7 +140,14 @@ export default function AboutUsPage() {
                     alt=""
                     width={32}
                     height={32}
-                    className="mb-2 h-7 w-7 object-contain sm:mb-3 sm:h-8 sm:w-8"
+                    className="mb-2 h-7 w-7 object-contain dark:hidden sm:mb-3 sm:h-8 sm:w-8"
+                  />
+                  <Image
+                    src={assets.eyeWhite}
+                    alt=""
+                    width={32}
+                    height={32}
+                    className="mb-2 hidden h-7 w-7 object-contain dark:block sm:mb-3 sm:h-8 sm:w-8"
                   />
                   <h3 className="mb-1.5 text-sm font-bold text-slate-900 dark:text-slate-100 sm:mb-2 sm:text-base">
                     {purpose.vision.title}
@@ -140,7 +172,7 @@ export default function AboutUsPage() {
 
         {/* Values section */}
         <section
-          className="bg-white px-4 py-12 pb-16 dark:bg-navy sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
+          className="bg-white px-4 py-12 pb-16 dark:bg-black sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
           aria-labelledby="values-heading"
         >
           <div className="mx-auto max-w-6xl">
@@ -166,7 +198,9 @@ export default function AboutUsPage() {
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
               {values.cards.map((card, i) => {
                 const iconKey = values.iconKeys[i];
+                const iconKeyWhite = values.iconKeysWhite[i];
                 const iconSrc = iconKey ? assets[iconKey] : undefined;
+                const iconSrcWhite = iconKeyWhite ? assets[iconKeyWhite] : undefined;
                 return (
                   <article
                     key={card.title}
@@ -178,7 +212,16 @@ export default function AboutUsPage() {
                         alt=""
                         width={48}
                         height={48}
-                        className="mb-4 h-9 w-9 shrink-0 object-contain sm:mb-8 sm:h-10 sm:w-10"
+                        className="mb-4 h-9 w-9 shrink-0 object-contain dark:hidden sm:mb-8 sm:h-10 sm:w-10"
+                      />
+                    )}
+                    {iconSrcWhite && (
+                      <Image
+                        src={iconSrcWhite}
+                        alt=""
+                        width={48}
+                        height={48}
+                        className="mb-4 hidden h-9 w-9 shrink-0 object-contain dark:block sm:mb-8 sm:h-10 sm:w-10"
                       />
                     )}
                     <h3 className="mb-1.5 shrink-0 text-base font-bold leading-tight text-slate-900 dark:text-slate-100 sm:mb-2 sm:text-xl">
@@ -200,7 +243,7 @@ export default function AboutUsPage() {
 
         {/* Regional Presence section */}
         <section
-          className="bg-white px-4 py-12 pb-16 dark:bg-navy sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
+          className="bg-white px-4 py-12 pb-16 dark:bg-black sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
           aria-labelledby="regional-heading"
         >
           <div className="mx-auto max-w-6xl">
