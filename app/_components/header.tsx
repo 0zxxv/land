@@ -16,7 +16,7 @@ export function Header() {
   return (
     <div className="flex justify-center px-3 pt-3 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8">
       <header
-        className={`relative flex h-14 w-full max-w-[95%] shrink-0 items-center justify-between gap-2 overflow-visible rounded-xl px-2 shadow-lg sm:h-[72px] sm:rounded-2xl sm:px-3 md:gap-4 lg:px-4 ${
+        className={`relative flex h-14 w-full max-w-[95%] shrink-0 items-center justify-between gap-2 overflow-visible rounded-full px-2 shadow-lg sm:h-[72px] sm:rounded-2xl sm:px-3 md:gap-4 lg:px-4 ${
           isHome
             ? "border border-white/30 bg-white/70 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/70"
             : "border border-slate-200/60 bg-[#F2F2F2] dark:border-slate-700/60 dark:bg-slate-800"
