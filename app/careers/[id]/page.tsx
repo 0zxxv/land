@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "../../_components/footer";
 import { Header } from "../../_components/header";
-import { CareerApplicationForm } from "./_components/career-application-form";
 import { content } from "../../content";
 
 const { careers } = content;
@@ -113,41 +112,51 @@ export default async function CareerDetailsPage({ params }: Props) {
   const hasShiftDetails = Array.isArray(jobWithExtras.shiftDetails) && jobWithExtras.shiftDetails.length > 0;
 
   return (
-    <div className="flex h-screen flex-col bg-white dark:bg-navy">
+    <div className="flex h-screen flex-col bg-white">
       <div className="sticky top-0 z-50 shrink-0">
         <Header />
       </div>
       <main className="min-h-0 flex-1 overflow-y-auto">
         <section
-          className="px-8 py-12 pb-24 lg:px-16 lg:py-16 lg:pb-36"
+          className="px-4 py-8 pb-16 sm:px-8 sm:py-12 sm:pb-24 lg:px-16 lg:py-16 lg:pb-36"
           aria-labelledby="job-title"
         >
           <div className="mx-auto max-w-3xl">
             <Link
               href="/careers"
-              className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-[#123146] dark:text-sky-400 hover:underline"
+              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline sm:mb-8 sm:text-sm"
             >
               ← Back to careers
             </Link>
 
-            {/* Job title – large, bold, uppercase */}
-            <h1
-              id="job-title"
-              className="mb-3 text-3xl font-bold uppercase tracking-tight text-slate-900 dark:text-slate-100 sm:text-4xl"
-            >
-              {job.title}
-            </h1>
+            {/* Job title + Apply Now */}
+            <div className="mb-2 flex flex-wrap items-center gap-3 sm:mb-3 sm:gap-4">
+              <h1
+                id="job-title"
+                className="text-xl font-bold uppercase tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
+              >
+                {job.title}
+              </h1>
+              <a
+                href={(job as { applyUrl?: string }).applyUrl ?? "https://indeed.com"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] sm:px-6 sm:py-2.5 sm:text-base"
+              >
+                Apply Now
+              </a>
+            </div>
 
             {/* Contact details: location and date */}
-            <div className="mb-10 flex flex-wrap items-center gap-4 text-base text-slate-600 dark:text-slate-400">
+            <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 sm:mb-10 sm:justify-start sm:gap-4 sm:text-base">
               {hasLocationAndDate ? (
                 <>
                   <span className="flex items-center gap-1.5">
-                    <LocationIcon className="h-4 w-4 shrink-0 text-slate-700 dark:text-slate-400" />
+                    <LocationIcon className="h-4 w-4 shrink-0 text-slate-700" />
                     {jobWithExtras.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <CalendarIcon className="h-4 w-4 shrink-0 text-slate-700 dark:text-slate-400" />
+                    <CalendarIcon className="h-4 w-4 shrink-0 text-slate-700" />
                     {jobWithExtras.postedDate}
                   </span>
                 </>
@@ -162,13 +171,13 @@ export default async function CareerDetailsPage({ params }: Props) {
             {/* JOB DETAILS */}
             {hasJobType && (
               <div className="mb-10">
-                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
+                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
                   Job details
                 </h2>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">Job type</span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F5F9] dark:bg-slate-800 px-4 py-1.5 text-sm font-medium text-slate-900 dark:text-slate-100">
-                    <ClockIcon className="h-4 w-4 shrink-0 text-slate-700 dark:text-slate-400" />
+                  <span className="text-sm text-slate-600">Job type</span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F5F9] px-4 py-1.5 text-sm font-medium text-slate-900">
+                    <ClockIcon className="h-4 w-4 shrink-0 text-slate-700" />
                     {jobWithExtras.jobType}
                   </span>
                 </div>
@@ -177,29 +186,97 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* ABOUT THE JOB */}
             <div className="mb-10">
-              <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-700">
                 About the job
               </h2>
-              <div className="space-y-3 text-slate-600 dark:text-slate-400">
-                {hasDescription && jobWithExtras.description ? (
-                  jobWithExtras.description.split("\n\n").map((para, i) => (
-                    <p key={i} className="leading-relaxed">
-                      {para}
-                    </p>
-                  ))
-                ) : (
-                  <p className="leading-relaxed">{job.descriptionSnippet}</p>
-                )}
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+                {hasDescription && jobWithExtras.description
+                  ? jobWithExtras.description.split("\n\n").map((block, i) => {
+                      const lines = block.split("\n");
+                      const line0 = lines[0];
+
+                      const isHeading = (line: string) => {
+                        if (line.length > 80) return false;
+                        if (line.endsWith(":") || line.endsWith("?")) return true;
+                        const stripped = line.replace(/^\d+\.\s*/, "");
+                        if (/^\d+\.\s/.test(line) && stripped.length < 70 && !stripped.includes(".")) return true;
+                        if (line.length < 65 && !/\.\s/.test(line) && !line.endsWith(".")) return true;
+                        return false;
+                      };
+
+                      const labelEnd = (line: string) => {
+                        const idx = line.indexOf(": ");
+                        return idx > 0 && idx < 50 ? idx : -1;
+                      };
+
+                      if (lines.length === 1 && isHeading(line0)) {
+                        return (
+                          <h3
+                            key={i}
+                            className="mt-3 text-base font-semibold text-slate-900 sm:text-lg"
+                          >
+                            {line0}
+                          </h3>
+                        );
+                      }
+
+                      if (lines.length > 1) {
+                        return (
+                          <ul key={i} className="space-y-2.5 pl-1">
+                            {lines.map((line, j) => {
+                              const lIdx = labelEnd(line);
+                              return (
+                                <li
+                                  key={j}
+                                  className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#123146]/40"
+                                >
+                                  {lIdx > 0 ? (
+                                    <>
+                                      <span className="font-semibold text-slate-800">
+                                        {line.slice(0, lIdx)}
+                                      </span>
+                                      <span className="font-semibold text-slate-800">:</span>{" "}
+                                      {line.slice(lIdx + 2)}
+                                    </>
+                                  ) : (
+                                    line
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        );
+                      }
+
+                      if (lines.length === 1 && labelEnd(line0) > 0) {
+                        const lIdx = labelEnd(line0);
+                        return (
+                          <p key={i}>
+                            <span className="font-semibold text-slate-800">
+                              {line0.slice(0, lIdx)}:
+                            </span>{" "}
+                            {line0.slice(lIdx + 2)}
+                          </p>
+                        );
+                      }
+
+                      return (
+                        <p key={i}>{line0}</p>
+                      );
+                    })
+                  : (
+                    <p>{job.descriptionSnippet}</p>
+                  )}
               </div>
             </div>
 
             {/* RECRUITERS INFO */}
             {hasRecruitersInfo && jobWithExtras.recruitersInfo && (
               <div className="mb-10">
-                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
+                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
                   Recruiters info
                 </h2>
-                <ul className="list-disc space-y-2 pl-5 text-slate-600 dark:text-slate-400">
+                <ul className="list-disc space-y-2 pl-5 text-slate-600">
                   {jobWithExtras.recruitersInfo.map((item, i) => (
                     <li key={i} className="leading-relaxed">
                       {item}
@@ -212,25 +289,25 @@ export default async function CareerDetailsPage({ params }: Props) {
             {/* Shift details */}
             {hasShiftDetails && jobWithExtras.shiftDetails && (
               <div className="mb-10">
-                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
+                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
                   About the job
                 </h2>
-                <p className="mb-3 text-sm font-medium text-slate-700 dark:text-slate-300">
+                <p className="mb-3 text-sm font-medium text-slate-700">
                   Shift details
                 </p>
                 <ul className="space-y-2">
                   {jobWithExtras.shiftDetails.map((shift, i) => (
                     <li
                       key={i}
-                      className="flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400 sm:gap-4"
+                      className="flex flex-wrap items-center gap-2 text-sm text-slate-600 sm:gap-4"
                     >
-                      <ClockIcon className="h-4 w-4 shrink-0 text-slate-500 dark:text-slate-400" />
+                      <ClockIcon className="h-4 w-4 shrink-0 text-slate-500" />
                       <span className="w-24 shrink-0">{shift.day}</span>
                       <span>{shift.date}</span>
                       <span
                         className={
                           shift.time === "Closed"
-                            ? "font-medium text-red-600 dark:text-red-400"
+                            ? "font-medium text-red-600"
                             : ""
                         }
                       >
@@ -244,7 +321,6 @@ export default async function CareerDetailsPage({ params }: Props) {
           </div>
         </section>
 
-        <CareerApplicationForm />
         <Footer />
       </main>
     </div>

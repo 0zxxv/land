@@ -23,7 +23,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
   }
 
   return (
-    <form ref={formRef} className="flex flex-col gap-8" action={action}>
+    <form ref={formRef} className="flex flex-col gap-5 sm:gap-8" action={action}>
       {/* Honeypot – hidden from users, catches bots */}
       <input
         type="text"
@@ -55,11 +55,11 @@ export function ContactForm({ form }: { form: FormConfig }) {
         )}
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-2">
-        <div className="flex flex-col gap-2">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-8">
+        <div className="flex flex-col gap-1.5 sm:gap-2">
           <label
             htmlFor="contact-name"
-            className="text-sm font-medium text-slate-700"
+            className="text-xs font-medium text-slate-700 sm:text-sm"
           >
             {form.nameLabel} <span aria-hidden="true">*</span>
           </label>
@@ -72,13 +72,13 @@ export function ContactForm({ form }: { form: FormConfig }) {
             placeholder={form.namePlaceholder}
             autoComplete="name"
             maxLength={100}
-            className="rounded-3xl bg-white dark:bg-slate-900 px-5 py-3 text-base text-slate-900 dark:text-slate-100 shadow-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
+            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
           />
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-1.5 sm:gap-2">
           <label
             htmlFor="contact-email"
-            className="text-sm font-medium text-slate-700 dark:text-slate-300"
+            className="text-xs font-medium text-slate-700 sm:text-sm"
           >
             {form.emailLabel} <span aria-hidden="true">*</span>
           </label>
@@ -91,35 +91,35 @@ export function ContactForm({ form }: { form: FormConfig }) {
             placeholder={form.emailPlaceholder}
             autoComplete="email"
             maxLength={254}
-            className="rounded-3xl bg-white dark:bg-slate-900 px-5 py-3 text-base text-slate-900 dark:text-slate-100 shadow-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
+            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
           />
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5 sm:gap-2">
         <label
           htmlFor="contact-message"
-          className="text-sm font-medium text-slate-700 dark:text-slate-300"
+          className="text-xs font-medium text-slate-700 sm:text-sm"
         >
           {form.messageLabel} <span aria-hidden="true">*</span>
         </label>
         <textarea
           id="contact-message"
           name="message"
-          rows={8}
+          rows={6}
           required
           aria-required="true"
           placeholder={form.messagePlaceholder}
           maxLength={10000}
-          className="w-full resize-y rounded-2xl bg-white dark:bg-slate-900 px-5 py-4 text-base text-slate-900 dark:text-slate-100 shadow-sm placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#123146]/20"
+          className="w-full resize-y rounded-xl bg-white px-4 py-3 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 sm:rounded-2xl sm:px-5 sm:py-4 sm:text-base"
         />
       </div>
 
-      <div className="flex justify-start pt-2">
+      <div className="flex justify-center pt-2 sm:justify-start">
         <button
           type="submit"
           disabled={pending}
-          className="rounded-3xl bg-[#123146] dark:bg-sky-600 px-12 py-2.5 text-base font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] dark:hover:bg-sky-500 focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70"
+          className="min-h-[44px] rounded-2xl bg-[#123146] px-8 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70 sm:rounded-3xl sm:px-12 sm:text-base"
         >
           {pending ? "Sending\u2026" : form.submitLabel}
         </button>

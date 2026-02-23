@@ -18,20 +18,23 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  title: content.site.title,
+  title: "Myntlabs",
   description: content.site.description,
+  icons: {
+    icon: "/assets/icon-blue.svg",
+  },
   metadataBase: new URL("https://myntlabs.com"),
   openGraph: {
-    title: content.site.title,
+    title: "Myntlabs",
     description: content.site.description,
     url: "https://myntlabs.com",
-    siteName: "MyntLabs",
+    siteName: "Myntlabs",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: content.site.title,
+    title: "Myntlabs",
     description: content.site.description,
   },
 };

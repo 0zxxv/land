@@ -17,16 +17,16 @@ export function Header() {
   const isDark = resolvedTheme === "dark";
 
   return (
-    <div className="flex justify-center px-6 pt-6 lg:px-8 lg:pt-8">
+    <div className="flex justify-center px-3 pt-3 sm:px-6 sm:pt-6 lg:px-8 lg:pt-8">
       <header
-        className={`relative flex h-[72px] w-[95%] shrink-0 items-center justify-between gap-3 overflow-visible rounded-2xl px-3 shadow-lg md:gap-4 lg:px-4 ${
+        className={`relative flex h-14 w-full max-w-[95%] shrink-0 items-center justify-between gap-2 overflow-visible rounded-xl px-2 shadow-lg sm:h-[72px] sm:rounded-2xl sm:px-3 md:gap-4 lg:px-4 ${
           isHome
             ? "border border-white/30 bg-white/70 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/70"
             : "border border-slate-200/60 bg-[#F2F2F2] dark:border-slate-700/60 dark:bg-slate-800"
         }`}
       >
-        <div className="absolute left-3 top-1/2 flex h-32 w-32 -translate-y-1/2 shrink-0 items-center justify-center lg:left-4">
-          <Link href="/">
+        <div className="absolute left-2 top-1/2 flex h-24 w-24 -translate-y-1/2 shrink-0 items-center justify-center sm:left-3 sm:h-32 sm:w-32 lg:left-4">
+          <Link href="/" className="block">
             <Image
               src={isDark ? assets.logoWhite : assets.logo}
               alt="Company logo"
@@ -37,7 +37,7 @@ export function Header() {
             />
           </Link>
         </div>
-        <div className="w-32 shrink-0" aria-hidden />
+        <div className="w-24 shrink-0 sm:w-32" aria-hidden />
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {navLinks.map(({ label, href }) => {
