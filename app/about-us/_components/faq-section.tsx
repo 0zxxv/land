@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { FAQAccordion } from "./faq-accordion";
 import type { Content } from "../../content";
 
@@ -67,23 +66,6 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
               <p className="mb-4 max-w-full text-xs leading-relaxed text-slate-600 sm:mb-6 sm:text-sm md:text-base lg:text-lg">
                 {faq.questions[activeIndex].answer}
               </p>
-              <Link
-                href={faq.cta.href}
-                className="inline-flex w-fit items-center gap-0 overflow-hidden rounded-lg bg-black outline-none transition-all duration-200 hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2"
-              >
-                <span className="px-4 py-2.5 text-xs font-medium text-white sm:px-6 sm:py-3 sm:text-sm">
-                  {faq.cta.label}
-                </span>
-                <span className="flex h-full items-center justify-center bg-gray-600 px-2.5 py-2.5 sm:px-3 sm:py-3">
-                  <Image
-                    src={assets.arrowWhite}
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="h-3.5 w-3.5 rotate-45 object-contain sm:h-4 sm:w-4"
-                  />
-                </span>
-              </Link>
             </div>
           </div>
         </div>

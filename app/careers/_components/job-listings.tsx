@@ -8,7 +8,6 @@ const JOBS_PER_PAGE = 6;
 type Job = {
   title: string;
   company: string;
-  applicants: number;
   tags: string[];
   descriptionSnippet: string;
   salary: string;
@@ -66,7 +65,7 @@ export function JobListings({
 
   return (
     <>
-      <div className="mb-8 grid gap-4 sm:mb-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+      <div className="mb-8 flex flex-wrap justify-center gap-4 sm:mb-12 sm:gap-6">
         {jobsOnPage.map((job, index) => {
           const globalIndex = start + index;
           const isSelected = selectedGlobalIndex === globalIndex;
@@ -82,7 +81,7 @@ export function JobListings({
                   setSelectedIndex(index);
                 }
               }}
-              className={`flex min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:min-h-[260px] sm:rounded-2xl sm:p-6 ${
+              className={`flex w-full min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:w-[calc(50%-0.75rem)] sm:min-h-[260px] sm:rounded-2xl sm:p-6 lg:w-[calc(33.333%-1rem)] ${
                 isSelected
                   ? "bg-[#123146] text-white"
                   : "bg-[#F8FAFC] text-slate-900"
@@ -108,7 +107,7 @@ export function JobListings({
                   isSelected ? "text-white/90" : "text-slate-600"
                 }`}
               >
-                {job.company} • {job.applicants} Applicants
+                {job.company}
               </p>
               <div className="mb-3 flex flex-wrap justify-center gap-1.5 sm:mb-4 sm:justify-start sm:gap-2">
                 {job.tags.map((tag) => (

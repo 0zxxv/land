@@ -179,17 +179,17 @@ export default function AboutUsPage() {
                         alt=""
                         width={48}
                         height={48}
-                        className="mb-4 h-9 w-9 object-contain sm:mb-8 sm:h-10 sm:w-10"
+                        className="mb-4 h-9 w-9 shrink-0 object-contain sm:mb-8 sm:h-10 sm:w-10"
                       />
                     )}
-                    <h3 className="mb-1.5 text-base font-bold leading-tight text-slate-900 sm:mb-2 sm:text-xl">
+                    <h3 className="mb-1.5 shrink-0 text-base font-bold leading-tight text-slate-900 sm:mb-2 sm:text-xl">
                       {formatCardTitleLines(card.title).map((line, j) => (
                       <span key={j} className="block">
                         {line}
                       </span>
                     ))}
                     </h3>
-                    <p className="text-xs leading-relaxed text-slate-600 sm:text-sm">
+                    <p className="mt-auto text-xs leading-relaxed text-slate-600 sm:text-sm">
                       {card.description}
                     </p>
                   </article>

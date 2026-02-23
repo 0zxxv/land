@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "../../_components/footer";
 import { Header } from "../../_components/header";
-import { CareerApplicationForm } from "./_components/career-application-form";
 import { content } from "../../content";
 
 const { careers } = content;
@@ -130,13 +129,23 @@ export default async function CareerDetailsPage({ params }: Props) {
               ← Back to careers
             </Link>
 
-            {/* Job title – large, bold, uppercase */}
-            <h1
-              id="job-title"
-              className="mb-2 text-xl font-bold uppercase tracking-tight text-slate-900 sm:mb-3 sm:text-3xl md:text-4xl"
-            >
-              {job.title}
-            </h1>
+            {/* Job title + Apply Now */}
+            <div className="mb-2 flex flex-wrap items-center gap-3 sm:mb-3 sm:gap-4">
+              <h1
+                id="job-title"
+                className="text-xl font-bold uppercase tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
+              >
+                {job.title}
+              </h1>
+              <a
+                href={(job as { applyUrl?: string }).applyUrl ?? "https://indeed.com"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] sm:px-6 sm:py-2.5 sm:text-base"
+              >
+                Apply Now
+              </a>
+            </div>
 
             {/* Contact details: location and date */}
             <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 sm:mb-10 sm:justify-start sm:gap-4 sm:text-base">
@@ -177,19 +186,87 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* ABOUT THE JOB */}
             <div className="mb-10">
-              <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-700">
                 About the job
               </h2>
-              <div className="space-y-3 text-slate-600">
-                {hasDescription && jobWithExtras.description ? (
-                  jobWithExtras.description.split("\n\n").map((para, i) => (
-                    <p key={i} className="leading-relaxed">
-                      {para}
-                    </p>
-                  ))
-                ) : (
-                  <p className="leading-relaxed">{job.descriptionSnippet}</p>
-                )}
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+                {hasDescription && jobWithExtras.description
+                  ? jobWithExtras.description.split("\n\n").map((block, i) => {
+                      const lines = block.split("\n");
+                      const line0 = lines[0];
+
+                      const isHeading = (line: string) => {
+                        if (line.length > 80) return false;
+                        if (line.endsWith(":") || line.endsWith("?")) return true;
+                        const stripped = line.replace(/^\d+\.\s*/, "");
+                        if (/^\d+\.\s/.test(line) && stripped.length < 70 && !stripped.includes(".")) return true;
+                        if (line.length < 65 && !/\.\s/.test(line) && !line.endsWith(".")) return true;
+                        return false;
+                      };
+
+                      const labelEnd = (line: string) => {
+                        const idx = line.indexOf(": ");
+                        return idx > 0 && idx < 50 ? idx : -1;
+                      };
+
+                      if (lines.length === 1 && isHeading(line0)) {
+                        return (
+                          <h3
+                            key={i}
+                            className="mt-3 text-base font-semibold text-slate-900 sm:text-lg"
+                          >
+                            {line0}
+                          </h3>
+                        );
+                      }
+
+                      if (lines.length > 1) {
+                        return (
+                          <ul key={i} className="space-y-2.5 pl-1">
+                            {lines.map((line, j) => {
+                              const lIdx = labelEnd(line);
+                              return (
+                                <li
+                                  key={j}
+                                  className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#123146]/40"
+                                >
+                                  {lIdx > 0 ? (
+                                    <>
+                                      <span className="font-semibold text-slate-800">
+                                        {line.slice(0, lIdx)}
+                                      </span>
+                                      <span className="font-semibold text-slate-800">:</span>{" "}
+                                      {line.slice(lIdx + 2)}
+                                    </>
+                                  ) : (
+                                    line
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        );
+                      }
+
+                      if (lines.length === 1 && labelEnd(line0) > 0) {
+                        const lIdx = labelEnd(line0);
+                        return (
+                          <p key={i}>
+                            <span className="font-semibold text-slate-800">
+                              {line0.slice(0, lIdx)}:
+                            </span>{" "}
+                            {line0.slice(lIdx + 2)}
+                          </p>
+                        );
+                      }
+
+                      return (
+                        <p key={i}>{line0}</p>
+                      );
+                    })
+                  : (
+                    <p>{job.descriptionSnippet}</p>
+                  )}
               </div>
             </div>
 
@@ -244,7 +321,6 @@ export default async function CareerDetailsPage({ params }: Props) {
           </div>
         </section>
 
-        <CareerApplicationForm />
         <Footer />
       </main>
     </div>

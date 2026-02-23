@@ -21,7 +21,7 @@ export function Header() {
             : "border border-slate-200/60 bg-[#F2F2F2]"
         }`}
       >
-        <div className="absolute left-2 top-1/2 flex h-20 w-20 -translate-y-1/2 shrink-0 items-center justify-center sm:left-3 sm:h-32 sm:w-32 lg:left-4">
+        <div className="absolute left-2 top-1/2 flex h-24 w-24 -translate-y-1/2 shrink-0 items-center justify-center sm:left-3 sm:h-32 sm:w-32 lg:left-4">
           <Link href="/" className="block">
             <Image
               src={assets.logo}
@@ -33,7 +33,7 @@ export function Header() {
             />
           </Link>
         </div>
-        <div className="w-20 shrink-0 sm:w-32" aria-hidden />
+        <div className="w-24 shrink-0 sm:w-32" aria-hidden />
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
           {navLinks.map(({ label, href }) => {
