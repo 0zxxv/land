@@ -112,7 +112,7 @@ export default async function CareerDetailsPage({ params }: Props) {
   const hasShiftDetails = Array.isArray(jobWithExtras.shiftDetails) && jobWithExtras.shiftDetails.length > 0;
 
   return (
-    <div className="flex h-screen flex-col bg-white">
+    <div className="flex h-screen flex-col bg-white dark:bg-navy">
       <div className="sticky top-0 z-50 shrink-0">
         <Header />
       </div>
@@ -124,7 +124,7 @@ export default async function CareerDetailsPage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <Link
               href="/careers"
-              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline sm:mb-8 sm:text-sm"
+              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-sky-400 sm:mb-8 sm:text-sm"
             >
               ← Back to careers
             </Link>
@@ -133,7 +133,7 @@ export default async function CareerDetailsPage({ params }: Props) {
             <div className="mb-2 flex flex-wrap items-center gap-3 sm:mb-3 sm:gap-4">
               <h1
                 id="job-title"
-                className="text-xl font-bold uppercase tracking-tight text-slate-900 sm:text-3xl md:text-4xl"
+                className="text-xl font-bold uppercase tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl md:text-4xl"
               >
                 {job.title}
               </h1>
@@ -141,22 +141,22 @@ export default async function CareerDetailsPage({ params }: Props) {
                 href={(job as { applyUrl?: string }).applyUrl ?? "https://indeed.com"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] sm:px-6 sm:py-2.5 sm:text-base"
+                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-sky-600 dark:hover:bg-sky-500 sm:px-6 sm:py-2.5 sm:text-base"
               >
                 Apply Now
               </a>
             </div>
 
             {/* Contact details: location and date */}
-            <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 sm:mb-10 sm:justify-start sm:gap-4 sm:text-base">
+            <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400 sm:mb-10 sm:justify-start sm:gap-4 sm:text-base">
               {hasLocationAndDate ? (
                 <>
                   <span className="flex items-center gap-1.5">
-                    <LocationIcon className="h-4 w-4 shrink-0 text-slate-700" />
+                    <LocationIcon className="h-4 w-4 shrink-0 text-slate-700 dark:text-slate-400" />
                     {jobWithExtras.location}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    <CalendarIcon className="h-4 w-4 shrink-0 text-slate-700" />
+                    <CalendarIcon className="h-4 w-4 shrink-0 text-slate-700 dark:text-slate-400" />
                     {jobWithExtras.postedDate}
                   </span>
                 </>
@@ -171,12 +171,12 @@ export default async function CareerDetailsPage({ params }: Props) {
             {/* JOB DETAILS */}
             {hasJobType && (
               <div className="mb-10">
-                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
+                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   Job details
                 </h2>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm text-slate-600">Job type</span>
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F5F9] px-4 py-1.5 text-sm font-medium text-slate-900">
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Job type</span>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#F1F5F9] px-4 py-1.5 text-sm font-medium text-slate-900 dark:bg-slate-800 dark:text-slate-100">
                     <ClockIcon className="h-4 w-4 shrink-0 text-slate-700" />
                     {jobWithExtras.jobType}
                   </span>
@@ -186,10 +186,10 @@ export default async function CareerDetailsPage({ params }: Props) {
 
             {/* ABOUT THE JOB */}
             <div className="mb-10">
-              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-700">
+              <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                 About the job
               </h2>
-              <div className="space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base">
+              <div className="space-y-4 text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base">
                 {hasDescription && jobWithExtras.description
                   ? jobWithExtras.description.split("\n\n").map((block, i) => {
                       const lines = block.split("\n");
@@ -213,7 +213,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                         return (
                           <h3
                             key={i}
-                            className="mt-3 text-base font-semibold text-slate-900 sm:text-lg"
+                            className="mt-3 text-base font-semibold text-slate-900 dark:text-slate-100 sm:text-lg"
                           >
                             {line0}
                           </h3>
@@ -228,14 +228,14 @@ export default async function CareerDetailsPage({ params }: Props) {
                               return (
                                 <li
                                   key={j}
-                                  className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#123146]/40"
+                                  className="relative pl-5 before:absolute before:left-0 before:top-[0.55em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#123146]/40 dark:before:bg-slate-500"
                                 >
                                   {lIdx > 0 ? (
                                     <>
-                                      <span className="font-semibold text-slate-800">
+                                      <span className="font-semibold text-slate-800 dark:text-slate-200">
                                         {line.slice(0, lIdx)}
                                       </span>
-                                      <span className="font-semibold text-slate-800">:</span>{" "}
+                                      <span className="font-semibold text-slate-800 dark:text-slate-200">:</span>{" "}
                                       {line.slice(lIdx + 2)}
                                     </>
                                   ) : (
@@ -252,7 +252,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                         const lIdx = labelEnd(line0);
                         return (
                           <p key={i}>
-                            <span className="font-semibold text-slate-800">
+                            <span className="font-semibold text-slate-800 dark:text-slate-200">
                               {line0.slice(0, lIdx)}:
                             </span>{" "}
                             {line0.slice(lIdx + 2)}
@@ -273,10 +273,10 @@ export default async function CareerDetailsPage({ params }: Props) {
             {/* RECRUITERS INFO */}
             {hasRecruitersInfo && jobWithExtras.recruitersInfo && (
               <div className="mb-10">
-                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
+                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   Recruiters info
                 </h2>
-                <ul className="list-disc space-y-2 pl-5 text-slate-600">
+                <ul className="list-disc space-y-2 pl-5 text-slate-600 dark:text-slate-400">
                   {jobWithExtras.recruitersInfo.map((item, i) => (
                     <li key={i} className="leading-relaxed">
                       {item}
@@ -289,25 +289,25 @@ export default async function CareerDetailsPage({ params }: Props) {
             {/* Shift details */}
             {hasShiftDetails && jobWithExtras.shiftDetails && (
               <div className="mb-10">
-                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
+                <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   About the job
                 </h2>
-                <p className="mb-3 text-sm font-medium text-slate-700">
+                <p className="mb-3 text-sm font-medium text-slate-700 dark:text-slate-300">
                   Shift details
                 </p>
                 <ul className="space-y-2">
                   {jobWithExtras.shiftDetails.map((shift, i) => (
                     <li
                       key={i}
-                      className="flex flex-wrap items-center gap-2 text-sm text-slate-600 sm:gap-4"
+                      className="flex flex-wrap items-center gap-2 text-sm text-slate-600 dark:text-slate-400 sm:gap-4"
                     >
-                      <ClockIcon className="h-4 w-4 shrink-0 text-slate-500" />
+                      <ClockIcon className="h-4 w-4 shrink-0 text-slate-500 dark:text-slate-400" />
                       <span className="w-24 shrink-0">{shift.day}</span>
                       <span>{shift.date}</span>
                       <span
                         className={
                           shift.time === "Closed"
-                            ? "font-medium text-red-600"
+                            ? "font-medium text-red-600 dark:text-red-400"
                             : ""
                         }
                       >

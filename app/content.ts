@@ -160,9 +160,9 @@ export const content = {
           "Yes, we specialize in integrating our solutions with your existing tools and systems. Whether you're using CRM platforms, ERP systems, or custom software, we ensure seamless integration that enhances your current workflow without disrupting operations.",
       },
       {
-        question: "Is our data secure?",
+        question: "What about data protection?",
         answer:
-          "Absolutely. Data security and privacy are fundamental to everything we do. We follow industry best practices and comply with regional data protection regulations. All data is encrypted, stored securely, and access is strictly controlled. We can also work with your existing security protocols to ensure complete compliance.",
+          "Data security and privacy are fundamental to everything we do. We follow industry best practices and comply with regional data protection regulations. We can also work with your existing security protocols to ensure complete compliance.",
       },
     ],
     cta: {

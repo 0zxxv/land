@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function ContactUsPage() {
   return (
-    <div className="flex h-screen flex-col overflow-y-auto bg-white">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-navy">
       <div className="sticky top-0 z-50">
         <Header />
       </div>
@@ -25,7 +25,7 @@ export default function ContactUsPage() {
           aria-labelledby="contact-heading"
         >
           <div className="mx-auto w-full max-w-4xl">
-            <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] sm:mb-5 sm:text-lg">
+            <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-sky-400 sm:mb-5 sm:text-lg">
               <Image
                 src={assets.iconBlue}
                 alt=""
@@ -37,18 +37,18 @@ export default function ContactUsPage() {
             </p>
             <h1
               id="contact-heading"
-              className="mb-3 text-center text-2xl font-semibold text-slate-900 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl"
+              className="mb-3 text-center text-2xl font-semibold text-slate-900 dark:text-slate-100 sm:mb-4 sm:text-3xl md:text-4xl lg:text-5xl"
             >
               {contactUs.headingLine1}{" "}
               <span className="font-newsreader font-medium italic">
                 {contactUs.headingLine2Italic}
               </span>
             </h1>
-            <p className="mb-8 text-center text-sm text-slate-600 sm:mb-10 sm:text-base md:text-lg">
+            <p className="mb-8 text-center text-sm text-slate-600 dark:text-slate-400 sm:mb-10 sm:text-base md:text-lg">
               {contactUs.subtitle}
             </p>
 
-            <div className="rounded-2xl bg-[#F5F5F5] p-5 shadow-lg sm:rounded-3xl sm:p-8 md:p-10 lg:p-12">
+            <div className="rounded-2xl bg-[#F5F5F5] p-5 shadow-lg dark:bg-slate-800 sm:rounded-3xl sm:p-8 md:p-10 lg:p-12">
               <ContactForm form={contactUs.form} />
             </div>
           </div>
@@ -62,12 +62,12 @@ export default function ContactUsPage() {
               {contactUs.contactInfo.map((card) => (
                 <div
                   key={card.title}
-                  className="flex min-h-[160px] min-w-0 flex-col rounded-xl bg-[#F1F5F9] p-4 text-center text-slate-900 shadow-sm sm:min-h-[200px] sm:rounded-2xl sm:p-6 sm:text-left"
+                  className="flex min-h-[160px] min-w-0 flex-col rounded-xl bg-[#F1F5F9] p-4 text-center text-slate-900 shadow-sm dark:bg-slate-800 sm:min-h-[200px] sm:rounded-2xl sm:p-6 sm:text-left"
                 >
-                  <h3 className="text-base font-semibold text-slate-900 sm:text-lg">
+                  <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100 sm:text-lg">
                     {card.title}
                   </h3>
-                  <p className="mt-auto whitespace-pre-line pt-2 text-xs leading-relaxed text-slate-900 sm:text-sm md:text-base">
+                  <p className="mt-auto whitespace-pre-line pt-2 text-xs leading-relaxed text-slate-900 dark:text-slate-300 sm:text-sm md:text-base">
                     {card.content}
                   </p>
                 </div>

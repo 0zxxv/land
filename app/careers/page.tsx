@@ -10,7 +10,6 @@ const { careers, assets } = content;
 const DOTS_BG_STYLE = {
   backgroundImage: "url('/assets/bg-dots.svg')",
   backgroundRepeat: "repeat" as const,
-  backgroundColor: "#ffffff",
   transform: "rotate(180deg)",
 };
 
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function CareersPage() {
   return (
-    <div className="flex h-screen flex-col overflow-y-auto bg-white">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-navy">
       <div className="sticky top-0 z-50">
         <Header />
       </div>
@@ -32,12 +31,12 @@ export default function CareersPage() {
           aria-labelledby="careers-heading"
         >
           <div
-            className="absolute inset-0 -z-0"
+            className="absolute inset-0 -z-0 bg-white dark:bg-transparent dark:opacity-10"
             style={DOTS_BG_STYLE}
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-7xl text-center sm:max-w-[90rem]">
-            <p className="mb-5 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] sm:mb-8 sm:text-lg">
+            <p className="mb-5 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-sky-400 sm:mb-8 sm:text-lg">
               <Image
                 src={assets.iconBlue}
                 alt=""
@@ -49,16 +48,16 @@ export default function CareersPage() {
             </p>
             <h1
               id="careers-heading"
-              className="mb-6 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 sm:mb-10 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
+              className="mb-6 text-2xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-slate-100 sm:mb-10 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
             >
               {careers.headlineLine1}
               <br />
               {careers.headlineLine2}
-              <span className="font-newsreader font-medium italic text-slate-900">
+              <span className="font-newsreader font-medium italic text-slate-900 dark:text-slate-100">
                 {careers.headlineItalic}
               </span>
             </h1>
-            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base md:text-xl lg:text-2xl">
+            <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base md:text-xl lg:text-2xl">
               {careers.description}
             </p>
           </div>
@@ -66,7 +65,7 @@ export default function CareersPage() {
 
         {/* Second section – job listings */}
         <section
-          className="bg-white px-4 py-12 pb-16 sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
+          className="bg-white px-4 py-12 pb-16 dark:bg-navy sm:px-8 sm:py-16 sm:pb-24 lg:px-16 lg:py-20 lg:pb-36"
           aria-labelledby="jobs-heading"
         >
           <div className="mx-auto max-w-6xl">

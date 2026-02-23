@@ -59,7 +59,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
         <div className="flex flex-col gap-1.5 sm:gap-2">
           <label
             htmlFor="contact-name"
-            className="text-xs font-medium text-slate-700 sm:text-sm"
+            className="text-xs font-medium text-slate-700 dark:text-slate-300 sm:text-sm"
           >
             {form.nameLabel} <span aria-hidden="true">*</span>
           </label>
@@ -72,13 +72,13 @@ export function ContactForm({ form }: { form: FormConfig }) {
             placeholder={form.namePlaceholder}
             autoComplete="name"
             maxLength={100}
-            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
+            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
           />
         </div>
         <div className="flex flex-col gap-1.5 sm:gap-2">
           <label
             htmlFor="contact-email"
-            className="text-xs font-medium text-slate-700 sm:text-sm"
+            className="text-xs font-medium text-slate-700 dark:text-slate-300 sm:text-sm"
           >
             {form.emailLabel} <span aria-hidden="true">*</span>
           </label>
@@ -91,7 +91,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
             placeholder={form.emailPlaceholder}
             autoComplete="email"
             maxLength={254}
-            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
+            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
           />
         </div>
       </div>
@@ -99,7 +99,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
       <div className="flex flex-col gap-1.5 sm:gap-2">
         <label
           htmlFor="contact-message"
-          className="text-xs font-medium text-slate-700 sm:text-sm"
+          className="text-xs font-medium text-slate-700 dark:text-slate-300 sm:text-sm"
         >
           {form.messageLabel} <span aria-hidden="true">*</span>
         </label>
@@ -111,7 +111,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
           aria-required="true"
           placeholder={form.messagePlaceholder}
           maxLength={10000}
-          className="w-full resize-y rounded-xl bg-white px-4 py-3 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 sm:rounded-2xl sm:px-5 sm:py-4 sm:text-base"
+          className="w-full resize-y rounded-xl bg-white px-4 py-3 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-500/30 sm:rounded-2xl sm:px-5 sm:py-4 sm:text-base"
         />
       </div>
 
@@ -119,7 +119,7 @@ export function ContactForm({ form }: { form: FormConfig }) {
         <button
           type="submit"
           disabled={pending}
-          className="min-h-[44px] rounded-2xl bg-[#123146] px-8 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70 sm:rounded-3xl sm:px-12 sm:text-base"
+          className="min-h-[44px] rounded-2xl bg-[#123146] px-8 py-2.5 text-sm font-medium text-white shadow-md transition-all duration-200 hover:bg-[#0f2942] focus:outline-none focus:ring-2 focus:ring-[#123146] focus:ring-offset-2 disabled:opacity-70 dark:bg-sky-600 dark:hover:bg-sky-500 dark:focus:ring-sky-500 sm:rounded-3xl sm:px-12 sm:text-base"
         >
           {pending ? "Sending\u2026" : form.submitLabel}
         </button>

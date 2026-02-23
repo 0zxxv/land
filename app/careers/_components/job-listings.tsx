@@ -6,12 +6,12 @@ import { useState, useMemo, useEffect } from "react";
 const JOBS_PER_PAGE = 6;
 
 type Job = {
-  title: string;
-  company: string;
-  tags: string[];
-  descriptionSnippet: string;
-  salary: string;
-  postedDays: number;
+  readonly title: string;
+  readonly company: string;
+  readonly tags: readonly string[];
+  readonly descriptionSnippet: string;
+  readonly salary: string;
+  readonly postedDays: number;
 };
 
 function ClockIcon({ className }: { className?: string }) {
@@ -41,7 +41,7 @@ export function JobListings({
   iconBlue,
   iconWhite,
 }: {
-  jobs: Job[];
+  jobs: readonly Job[];
   readMore: string;
   iconBlue: string;
   iconWhite: string;
@@ -84,7 +84,7 @@ export function JobListings({
               className={`flex w-full min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:w-[calc(50%-0.75rem)] sm:min-h-[260px] sm:rounded-2xl sm:p-6 lg:w-[calc(33.333%-1rem)] ${
                 isSelected
                   ? "bg-[#123146] text-white"
-                  : "bg-[#F8FAFC] text-slate-900"
+                  : "bg-[#F8FAFC] text-slate-900 dark:bg-slate-800 dark:text-slate-100"
               }`}
             >
               <div className="mb-3 flex items-center justify-center gap-2 sm:mb-4 sm:justify-start sm:gap-3">
@@ -104,7 +104,7 @@ export function JobListings({
               </div>
               <p
                 className={`mb-2 text-center text-xs sm:mb-3 sm:text-left sm:text-sm ${
-                  isSelected ? "text-white/90" : "text-slate-600"
+                  isSelected ? "text-white/90" : "text-slate-600 dark:text-slate-400"
                 }`}
               >
                 {job.company}
@@ -116,7 +116,7 @@ export function JobListings({
                     className={`rounded-full px-2.5 py-0.5 text-[10px] font-medium sm:px-3 sm:py-1 sm:text-xs ${
                       isSelected
                         ? "bg-white text-black"
-                        : "bg-[#EBF5FF] text-black"
+                        : "bg-[#EBF5FF] text-black dark:bg-sky-900/30 dark:text-sky-300"
                     }`}
                   >
                     {tag}
@@ -125,7 +125,7 @@ export function JobListings({
               </div>
               <p
                 className={`mb-2 flex-1 text-center text-xs leading-relaxed sm:mb-3 sm:text-left sm:text-sm ${
-                  isSelected ? "text-white/90" : "text-slate-600"
+                  isSelected ? "text-white/90" : "text-slate-600 dark:text-slate-400"
                 }`}
               >
                 {job.descriptionSnippet}
@@ -136,22 +136,22 @@ export function JobListings({
                 className={`mb-3 inline-block text-center text-xs font-medium underline underline-offset-2 sm:mb-4 sm:text-left sm:text-sm ${
                   isSelected
                     ? "text-white hover:text-white/90"
-                    : "text-[#123146] hover:text-[#0f2942]"
+                    : "text-[#123146] hover:text-[#0f2942] dark:text-sky-400 dark:hover:text-sky-300"
                 }`}
               >
                 {readMore}
               </Link>
-              <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs sm:pt-4 sm:text-sm">
+              <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs dark:border-slate-600 sm:pt-4 sm:text-sm">
                 <span
                   className={
-                    isSelected ? "text-white/90" : "text-slate-700"
+                    isSelected ? "text-white/90" : "text-slate-700 dark:text-slate-300"
                   }
                 >
                   {job.salary}
                 </span>
                 <span
                   className={`flex items-center gap-1 ${
-                    isSelected ? "text-white/80" : "text-slate-500"
+                    isSelected ? "text-white/80" : "text-slate-500 dark:text-slate-400"
                   }`}
                 >
                   <ClockIcon className="h-4 w-4" />
@@ -172,7 +172,7 @@ export function JobListings({
           type="button"
           onClick={goPrev}
           disabled={currentPage <= 1}
-          className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 disabled:opacity-50"
+          className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 disabled:opacity-50"
           aria-label="Previous page"
         >
           &lt;
@@ -186,7 +186,7 @@ export function JobListings({
                 className={`flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg text-sm transition-colors sm:text-base ${
                   currentPage === page
                     ? "bg-[#123146] text-white"
-                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                 }`}
                 aria-label={`Page ${page}`}
                 aria-current={currentPage === page ? "page" : undefined}
@@ -205,7 +205,7 @@ export function JobListings({
                 page === "ellipsis" ? (
                   <span
                     key={`ellipsis-${i}`}
-                    className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 px-2 text-slate-500"
+                    className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 px-2 text-slate-500 dark:bg-slate-800 dark:text-slate-400"
                   >
                     …
                   </span>
@@ -217,7 +217,7 @@ export function JobListings({
                     className={`flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg text-sm transition-colors sm:text-base ${
                       currentPage === page
                         ? "bg-[#123146] text-white"
-                        : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                        : "bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                     }`}
                     aria-label={`Page ${page}`}
                     aria-current={currentPage === page ? "page" : undefined}
@@ -231,7 +231,7 @@ export function JobListings({
           type="button"
           onClick={goNext}
           disabled={currentPage >= totalPages}
-          className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 disabled:opacity-50"
+          className="flex h-10 w-10 min-w-[44px] items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition-colors hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 disabled:opacity-50"
           aria-label="Next page"
         >
           &gt;
