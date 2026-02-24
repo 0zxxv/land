@@ -22,9 +22,6 @@ export function MobileNav() {
   useEffect(() => {
     if (open) {
       setMounted(true);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setAnimating(true));
-      });
       document.body.style.overflow = "hidden";
     } else if (mounted) {
       setAnimating(false);
@@ -45,12 +42,19 @@ export function MobileNav() {
     };
   }, [open, close, mounted]);
 
+  useEffect(() => {
+    if (mounted && open) {
+      const id = setTimeout(() => setAnimating(true), 20);
+      return () => clearTimeout(id);
+    }
+  }, [mounted, open]);
+
   return (
     <>
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-800 transition-colors hover:bg-slate-100 active:bg-slate-200 md:hidden"
+        className="flex h-11 w-11 min-h-[44px] min-w-[44px] items-center justify-center rounded-xl text-slate-800 transition-colors hover:bg-slate-100 active:bg-slate-200 dark:text-slate-200 dark:hover:bg-white/10 dark:active:bg-white/20 md:hidden"
         aria-expanded={open}
         aria-label={open ? "Close menu" : "Open menu"}
       >
@@ -93,18 +97,18 @@ export function MobileNav() {
               aria-hidden
             />
             <nav
-              className={`absolute right-0 top-0 flex h-full w-[min(100%,20rem)] flex-col gap-0 border-l border-slate-200 bg-white p-4 shadow-2xl transition-transform sm:p-6 ${
+              className={`absolute right-0 top-0 flex h-full w-[min(100%,20rem)] flex-col gap-0 border-l border-slate-200 bg-white p-4 shadow-2xl transition-transform dark:border-slate-700 dark:bg-slate-900 sm:p-6 ${
                 animating ? "translate-x-0" : "translate-x-full"
               }`}
               style={{ transitionDuration: `${DURATION}ms`, transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
               aria-label="Main menu"
             >
               <div className="mb-4 flex items-center justify-between sm:mb-6">
-                <span className="text-sm font-semibold text-slate-500">Menu</span>
+                <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">Menu</span>
                 <button
                   type="button"
                   onClick={close}
-                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-800 transition-colors hover:bg-slate-100 active:bg-slate-200"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-slate-800 transition-colors hover:bg-slate-100 active:bg-slate-200 dark:text-slate-200 dark:hover:bg-white/10"
                   aria-label="Close menu"
                 >
                   <svg
@@ -131,8 +135,8 @@ export function MobileNav() {
                       key={label}
                       href={href}
                       onClick={close}
-                      className={`min-h-[44px] flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-slate-100 active:bg-slate-200 ${
-                        isActive ? "text-slate-900 font-semibold bg-slate-50" : "text-slate-800"
+                      className={`min-h-[44px] flex items-center rounded-xl px-4 py-3 text-sm font-medium transition-all duration-200 hover:bg-slate-100 active:bg-slate-200 dark:hover:bg-slate-800 dark:active:bg-slate-700 ${
+                        isActive ? "text-slate-900 font-semibold bg-slate-50 dark:text-white dark:bg-slate-800" : "text-slate-800 dark:text-slate-300"
                       }`}
                     >
                       {label}
@@ -143,7 +147,7 @@ export function MobileNav() {
               <Link
                 href={headerCta.href}
                 onClick={close}
-                className="mt-4 flex min-h-[48px] items-center justify-center rounded-xl bg-[#123146] px-4 py-3 text-center text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] sm:text-base"
+                className="mt-4 flex min-h-[48px] items-center justify-center rounded-xl bg-[#123146] px-4 py-3 text-center text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white sm:text-base"
               >
                 {headerCta.label}
               </Link>
