@@ -56,7 +56,7 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
               onActiveChange={setActiveIndex}
             />
           </div>
-          <div className="relative flex min-h-[280px] flex-col overflow-hidden rounded-xl bg-[#F3F4F6] shadow-lg dark:bg-slate-800 sm:min-h-[320px] sm:rounded-2xl lg:min-h-0">
+          <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-xl bg-[#F3F4F6] shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-slate-800 sm:min-h-[320px] sm:rounded-2xl lg:min-h-0">
             <div className="absolute right-0 top-0 z-0">
               <Image
                 src={assets.jellyLogo}

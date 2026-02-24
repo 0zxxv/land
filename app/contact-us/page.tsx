@@ -73,7 +73,7 @@ export default function ContactUsPage() {
             <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
               {contactUs.contactInfo.map((card, i) => (
                 <SlideUpOnScroll key={card.title} delay={i * 80}>
-                  <div className="flex min-h-[160px] min-w-0 flex-col rounded-xl bg-[#F1F5F9] p-4 text-center text-slate-900 shadow-sm dark:bg-slate-800 sm:min-h-[200px] sm:rounded-2xl sm:p-6 sm:text-left">
+                  <div className="flex min-h-[160px] min-w-0 flex-col rounded-xl bg-[#F1F5F9] p-4 text-center text-slate-900 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-[#E2E8F0] dark:bg-slate-800 dark:hover:bg-slate-700 sm:min-h-[200px] sm:rounded-2xl sm:p-6 sm:text-left">
                     <h3 className="text-base font-semibold text-slate-900 dark:text-slate-100 sm:text-lg">{card.title}</h3>
                     <p className="mt-auto whitespace-pre-line pt-2 text-xs leading-relaxed text-slate-900 dark:text-slate-300 sm:text-sm md:text-base">{card.content}</p>
                   </div>

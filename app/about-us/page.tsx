@@ -74,7 +74,7 @@ export default function AboutUsPage() {
               </p>
             </SlideUpOnScroll>
             <SlideUpOnScroll delay={150}>
-              <Link href={aboutUs.cta.href} className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-6 py-3.5 text-base font-medium text-white shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-gray-900 hover:shadow-xl active:scale-[0.98] dark:bg-white dark:text-black dark:hover:bg-slate-200 sm:px-10 sm:py-5 sm:text-xl">
+              <Link href={aboutUs.cta.href} className="inline-flex items-center justify-center gap-2 rounded-lg bg-black px-6 py-3.5 text-base font-medium text-white shadow-md transition-all duration-300 hover:scale-[1.04] hover:bg-gray-900 hover:shadow-xl active:scale-[0.98] dark:bg-white dark:text-black dark:hover:bg-slate-200 sm:px-10 sm:py-5 sm:text-xl">
                 {aboutUs.cta.label}
               </Link>
             </SlideUpOnScroll>
@@ -102,17 +102,17 @@ export default function AboutUsPage() {
               </SlideUpOnScroll>
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <SlideUpOnScroll delay={100}>
-                  <article className="flex flex-col items-center rounded-xl bg-slate-100 p-4 text-center dark:bg-slate-800 sm:items-start sm:p-5 sm:text-left">
-                    <Image src={assets.rocket} alt="" width={32} height={32} className="mb-2 h-7 w-7 object-contain dark:hidden sm:mb-3 sm:h-8 sm:w-8" />
-                    <Image src={assets.rocketWhite} alt="" width={32} height={32} className="mb-2 hidden h-7 w-7 object-contain dark:block sm:mb-3 sm:h-8 sm:w-8" />
+                  <article className="group flex flex-col items-center rounded-xl bg-slate-100 p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-slate-800 sm:items-start sm:p-5 sm:text-left hover:dark:bg-slate-700/90">
+                    <Image src={assets.rocket} alt="" width={32} height={32} className="mb-2 h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-110 dark:hidden sm:mb-3 sm:h-8 sm:w-8" />
+                    <Image src={assets.rocketWhite} alt="" width={32} height={32} className="mb-2 hidden h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-110 dark:block sm:mb-3 sm:h-8 sm:w-8" />
                     <h3 className="mb-1.5 text-sm font-bold text-slate-900 dark:text-slate-100 sm:mb-2 sm:text-base">{purpose.mission.title}</h3>
                     <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400 sm:text-sm">{purpose.mission.description}</p>
                   </article>
                 </SlideUpOnScroll>
                 <SlideUpOnScroll delay={150}>
-                  <article className="flex flex-col items-center rounded-xl bg-slate-100 p-4 text-center dark:bg-slate-800 sm:items-start sm:p-5 sm:text-left">
-                    <Image src={assets.eye} alt="" width={32} height={32} className="mb-2 h-7 w-7 object-contain dark:hidden sm:mb-3 sm:h-8 sm:w-8" />
-                    <Image src={assets.eyeWhite} alt="" width={32} height={32} className="mb-2 hidden h-7 w-7 object-contain dark:block sm:mb-3 sm:h-8 sm:w-8" />
+                  <article className="group flex flex-col items-center rounded-xl bg-slate-100 p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:bg-slate-800 sm:items-start sm:p-5 sm:text-left hover:dark:bg-slate-700/90">
+                    <Image src={assets.eye} alt="" width={32} height={32} className="mb-2 h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-110 dark:hidden sm:mb-3 sm:h-8 sm:w-8" />
+                    <Image src={assets.eyeWhite} alt="" width={32} height={32} className="mb-2 hidden h-7 w-7 object-contain transition-transform duration-300 group-hover:scale-110 dark:block sm:mb-3 sm:h-8 sm:w-8" />
                     <h3 className="mb-1.5 text-sm font-bold text-slate-900 dark:text-slate-100 sm:mb-2 sm:text-base">{purpose.vision.title}</h3>
                     <p className="text-xs leading-relaxed text-slate-600 dark:text-slate-400 sm:text-sm">{purpose.vision.description}</p>
                   </article>
@@ -120,7 +120,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             <SlideUpOnScroll delay={100}>
-              <div className="flex min-h-[220px] items-center justify-center rounded-2xl bg-white dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
+              <div className="group flex min-h-[220px] items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
                 <WireframeCube className="h-[280px] w-[280px] sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]" />
               </div>
             </SlideUpOnScroll>
@@ -159,9 +159,9 @@ export default function AboutUsPage() {
                 const iconSrcWhite = iconKeyWhite ? assets[iconKeyWhite] : undefined;
                 return (
                   <SlideUpOnScroll key={card.title} delay={100 + i * 80}>
-                    <article className="flex min-h-[220px] flex-col items-center rounded-xl bg-slate-100 p-5 text-center dark:bg-slate-800 sm:min-h-[250px] sm:items-start sm:p-8 sm:text-left">
-                      {iconSrc && <Image src={iconSrc} alt="" width={48} height={48} className="mb-4 h-9 w-9 shrink-0 object-contain dark:hidden sm:mb-8 sm:h-10 sm:w-10" />}
-                      {iconSrcWhite && <Image src={iconSrcWhite} alt="" width={48} height={48} className="mb-4 hidden h-9 w-9 shrink-0 object-contain dark:block sm:mb-8 sm:h-10 sm:w-10" />}
+                    <article className="group flex min-h-[220px] flex-col items-center rounded-xl bg-slate-100 p-5 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl dark:bg-slate-800 sm:min-h-[250px] sm:items-start sm:p-8 sm:text-left hover:dark:bg-slate-700/90">
+                      {iconSrc && <Image src={iconSrc} alt="" width={48} height={48} className="mb-4 h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:scale-110 dark:hidden sm:mb-8 sm:h-10 sm:w-10" />}
+                      {iconSrcWhite && <Image src={iconSrcWhite} alt="" width={48} height={48} className="mb-4 hidden h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:scale-110 dark:block sm:mb-8 sm:h-10 sm:w-10" />}
                       <h3 className="mb-1.5 shrink-0 text-base font-bold leading-tight text-slate-900 dark:text-slate-100 sm:mb-2 sm:text-xl">
                         {formatCardTitleLines(card.title).map((line, j) => (
                           <span key={j} className="block">{line}</span>

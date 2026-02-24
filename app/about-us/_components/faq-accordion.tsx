@@ -24,10 +24,10 @@ export function FAQAccordion({
           <button
             key={index}
             onClick={() => onActiveChange(index)}
-            className={`flex min-h-[52px] w-full items-center rounded-xl px-4 py-3 text-left outline-none transition-colors focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 sm:min-h-0 sm:rounded-2xl sm:px-5 sm:py-4 ${
+            className={`flex min-h-[52px] w-full items-center rounded-xl px-4 py-3 text-left outline-none transition-all duration-200 focus-visible:ring-2 focus-visible:ring-gray-500 focus-visible:ring-offset-2 sm:min-h-0 sm:rounded-2xl sm:px-5 sm:py-4 ${
               isActive
                 ? "bg-black text-white dark:bg-[#F3F4F6] dark:text-black"
-                : "bg-[#F3F4F6] text-black dark:bg-slate-800 dark:text-slate-100"
+                : "bg-[#F3F4F6] text-black hover:bg-slate-200 hover:shadow-md dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
             }`}
           >
             <div className="flex w-full items-center justify-between gap-2">

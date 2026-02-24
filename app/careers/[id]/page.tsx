@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "../../_components/footer";
 import { Header } from "../../_components/header";
+import { SlideUpOnScroll } from "../../_components/slide-up-on-scroll";
 import { content } from "../../content";
 import { daysAgo } from "../../lib/utils";
 
@@ -139,34 +140,41 @@ export default async function CareerDetailsPage({ params }: Props) {
           <div className="absolute inset-0 bg-white dark:hidden" style={DOTS_BG_STYLE} aria-hidden />
           <div className="absolute inset-0 hidden dark:block dark:opacity-100" style={DOTS_BG_STYLE_DARK} aria-hidden />
           <div className="relative z-10 mx-auto max-w-3xl text-center sm:text-left">
-            <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-5 sm:text-lg">
-              <Image src={assets.iconBlue} alt="" width={24} height={24} className="h-5 w-5 object-contain dark:hidden sm:h-6 sm:w-6" />
-              <Image src={assets.iconWhite} alt="" width={24} height={24} className="hidden h-5 w-5 object-contain dark:block sm:h-6 sm:w-6" />
-              {careers.label}
-            </p>
-            <Link
-              href="/careers"
-              className="mb-6 inline-flex items-center justify-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-[#F3F4F6] sm:mb-8 sm:justify-start sm:text-sm"
-            >
-              ← Back to careers
-            </Link>
-            <div className="mb-2 flex flex-wrap items-center justify-center gap-3 sm:mb-3 sm:justify-start sm:gap-4">
-              <h1
-                id="job-title"
-                className="text-xl font-bold uppercase tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl md:text-4xl"
+            <SlideUpOnScroll delay={0}>
+              <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-5 sm:text-lg">
+                <Image src={assets.iconBlue} alt="" width={24} height={24} className="h-5 w-5 object-contain dark:hidden sm:h-6 sm:w-6" />
+                <Image src={assets.iconWhite} alt="" width={24} height={24} className="hidden h-5 w-5 object-contain dark:block sm:h-6 sm:w-6" />
+                Job details
+              </p>
+            </SlideUpOnScroll>
+            <SlideUpOnScroll delay={50}>
+              <Link
+                href="/careers"
+                className="mb-6 inline-flex items-center justify-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-[#F3F4F6] sm:mb-8 sm:justify-start sm:text-sm"
               >
-                {job.title}
-              </h1>
-              <a
-                href={(job as { applyUrl?: string }).applyUrl ?? "https://indeed.com"}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white sm:px-6 sm:py-2.5 sm:text-base"
-              >
-                Apply Now
-              </a>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400 sm:justify-start sm:gap-4 sm:text-base">
+                ← Back to careers
+              </Link>
+            </SlideUpOnScroll>
+            <SlideUpOnScroll delay={100}>
+              <div className="mb-2 flex flex-wrap items-center justify-center gap-3 sm:mb-3 sm:justify-start sm:gap-4">
+                <h1
+                  id="job-title"
+                  className="text-xl font-bold uppercase tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl md:text-4xl"
+                >
+                  {job.title}
+                </h1>
+                <a
+                  href={(job as { applyUrl?: string }).applyUrl ?? "https://indeed.com"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#123146] px-5 py-2 text-sm font-medium text-white shadow-md transition-all duration-200 hover:brightness-110 hover:shadow-lg active:scale-[0.98] dark:bg-[#F3F4F6] dark:text-black dark:hover:bg-white sm:px-6 sm:py-2.5 sm:text-base"
+                >
+                  Apply Now
+                </a>
+              </div>
+            </SlideUpOnScroll>
+            <SlideUpOnScroll delay={150}>
+              <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400 sm:justify-start sm:gap-4 sm:text-base">
               {hasLocationAndDate ? (
                 <>
                   <span className="flex items-center gap-1.5">
@@ -184,7 +192,8 @@ export default async function CareerDetailsPage({ params }: Props) {
                   Posted {jobWithExtras.postedDate ? daysAgo(jobWithExtras.postedDate) : job.postedDays} days ago
                 </span>
               )}
-            </div>
+              </div>
+            </SlideUpOnScroll>
           </div>
         </section>
 
@@ -196,6 +205,7 @@ export default async function CareerDetailsPage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             {/* JOB DETAILS */}
             {hasJobType && (
+              <SlideUpOnScroll delay={0}>
               <div className="mb-10">
                 <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   Job details
@@ -208,9 +218,11 @@ export default async function CareerDetailsPage({ params }: Props) {
                   </span>
                 </div>
               </div>
+              </SlideUpOnScroll>
             )}
 
             {/* ABOUT THE JOB */}
+            <SlideUpOnScroll delay={50}>
             <div className="mb-10">
               <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                 About the job
@@ -295,9 +307,11 @@ export default async function CareerDetailsPage({ params }: Props) {
                   )}
               </div>
             </div>
+            </SlideUpOnScroll>
 
             {/* RECRUITERS INFO */}
             {hasRecruitersInfo && jobWithExtras.recruitersInfo && (
+              <SlideUpOnScroll delay={100}>
               <div className="mb-10">
                 <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   Recruiters info
@@ -310,10 +324,12 @@ export default async function CareerDetailsPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
+              </SlideUpOnScroll>
             )}
 
             {/* Shift details */}
             {hasShiftDetails && jobWithExtras.shiftDetails && (
+              <SlideUpOnScroll delay={150}>
               <div className="mb-10">
                 <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   About the job
@@ -343,6 +359,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
+              </SlideUpOnScroll>
             )}
           </div>
         </section>
