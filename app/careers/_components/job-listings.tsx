@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useMemo, useEffect } from "react";
 import { daysAgo } from "../../lib/utils";
+import { SlideUpOnScroll } from "../../_components/slide-up-on-scroll";
 const JOBS_PER_PAGE = 6;
 
 type Job = {
@@ -72,8 +73,8 @@ export function JobListings({
           const globalIndex = start + index;
           const isSelected = selectedGlobalIndex === globalIndex;
           return (
+            <SlideUpOnScroll key={globalIndex} delay={index * 80} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
             <article
-              key={globalIndex}
               role="button"
               tabIndex={0}
               onClick={() => setSelectedIndex(index)}
@@ -83,7 +84,7 @@ export function JobListings({
                   setSelectedIndex(index);
                 }
               }}
-              className={`flex w-full min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:w-[calc(50%-0.75rem)] sm:min-h-[260px] sm:rounded-2xl sm:p-6 lg:w-[calc(33.333%-1rem)] ${
+              className={`flex w-full min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:min-h-[260px] sm:rounded-2xl sm:p-6 ${
                 isSelected
                   ? "bg-[#123146] text-white dark:bg-[#F3F4F6] dark:text-black"
                   : "bg-[#F8FAFC] text-slate-900 dark:bg-slate-800 dark:text-slate-100"
@@ -168,6 +169,7 @@ export function JobListings({
                 </span>
               </div>
             </article>
+            </SlideUpOnScroll>
           );
         })}
       </div>

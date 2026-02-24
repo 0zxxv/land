@@ -16,7 +16,7 @@ interface SlideUpOnScrollProps {
 export function SlideUpOnScroll({
   children,
   className = '',
-  distance = 2,
+  distance = 3,
   delay = 0,
   threshold = 0.1,
 }: SlideUpOnScrollProps) {
@@ -51,10 +51,11 @@ export function SlideUpOnScroll({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${className}`}
+      className={`transition-all ease-out ${className}`}
       style={{
         transform: visible ? 'translateY(0)' : `translateY(${distance}rem)`,
         opacity: visible ? 1 : 0,
+        transitionDuration: '1.2s',
       }}
     >
       {children}
