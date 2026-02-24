@@ -160,7 +160,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             <div className="flex min-h-[220px] items-center justify-center rounded-2xl bg-white dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
-              <WireframeCube className="h-[300px] w-[300px] sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]" />
+              <WireframeCube className="h-[280px] w-[280px] sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]" />
             </div>
           </div>
         </section>

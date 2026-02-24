@@ -79,7 +79,7 @@ export function WireframeCube({ className = '' }: WireframeCubeProps) {
       const projectedVertices = rotatedVertices.map(v => project(v))
 
       ctx.strokeStyle = getStrokeColor()
-      ctx.lineWidth = 1.7
+      ctx.lineWidth = window.innerWidth < 640 ? 2 : 1.2
 
       edges.forEach(([start, end]) => {
         const [x1, y1] = projectedVertices[start]
