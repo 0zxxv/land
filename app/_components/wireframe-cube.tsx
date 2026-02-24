@@ -19,13 +19,13 @@ export function WireframeCube({ className = '' }: WireframeCubeProps) {
     let animationFrameId: number
     let rotation = 0
 
-    const size = 400
+    const size = 800
     canvas.width = size
     canvas.height = size
 
     const centerX = size / 2
     const centerY = size / 2
-    const cubeSize = 120
+    const cubeSize = 176
 
     const vertices = [
       [-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
@@ -56,7 +56,7 @@ export function WireframeCube({ className = '' }: WireframeCubeProps) {
 
     function project(point: number[]) {
       const [x, y, z] = point
-      const scale = 400 / (400 + z)
+      const scale = 800 / (800 + z)
       return [
         centerX + x * scale * cubeSize,
         centerY + y * scale * cubeSize
@@ -79,7 +79,7 @@ export function WireframeCube({ className = '' }: WireframeCubeProps) {
       const projectedVertices = rotatedVertices.map(v => project(v))
 
       ctx.strokeStyle = getStrokeColor()
-      ctx.lineWidth = 1.5
+      ctx.lineWidth = 1.7
 
       edges.forEach(([start, end]) => {
         const [x1, y1] = projectedVertices[start]
