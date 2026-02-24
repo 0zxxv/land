@@ -7,6 +7,7 @@ import { formatCardTitleLines } from "../lib/utils";
 import { Footer } from "../_components/footer";
 import { FAQSection } from "./_components/faq-section";
 import { WireframeCube } from "../_components/wireframe-cube";
+import { SlideUpOnScroll } from "../_components/slide-up-on-scroll";
 
 const { aboutUs, purpose, values, regionalPresence, faq, assets } = content;
 
@@ -50,6 +51,7 @@ export default function AboutUsPage() {
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-7xl text-center sm:max-w-[90rem]">
+            <SlideUpOnScroll>
             <p className="mb-5 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-8 sm:text-lg">
               <Image
                 src={assets.iconBlue}
@@ -89,6 +91,7 @@ export default function AboutUsPage() {
             >
               {aboutUs.cta.label}
             </Link>
+            </SlideUpOnScroll>
           </div>
         </section>
 
@@ -98,6 +101,7 @@ export default function AboutUsPage() {
           aria-labelledby="purpose-heading"
         >
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-stretch lg:gap-16">
+            <SlideUpOnScroll>
             <div className="flex flex-col text-center sm:text-left">
               <h2
                 id="purpose-heading"
@@ -159,9 +163,12 @@ export default function AboutUsPage() {
                 </article>
               </div>
             </div>
+            </SlideUpOnScroll>
+            <SlideUpOnScroll delay={100}>
             <div className="flex min-h-[220px] items-center justify-center rounded-2xl bg-white dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
               <WireframeCube className="h-[280px] w-[280px] sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]" />
             </div>
+            </SlideUpOnScroll>
           </div>
         </section>
 
@@ -171,6 +178,7 @@ export default function AboutUsPage() {
           aria-labelledby="values-heading"
         >
           <div className="mx-auto max-w-6xl">
+            <SlideUpOnScroll>
             <div className="mb-4 text-center sm:mb-5">
               <h2
                 id="values-heading"
@@ -233,6 +241,7 @@ export default function AboutUsPage() {
                 );
               })}
             </div>
+            </SlideUpOnScroll>
           </div>
         </section>
 
@@ -242,6 +251,7 @@ export default function AboutUsPage() {
           aria-labelledby="regional-heading"
         >
           <div className="mx-auto max-w-6xl">
+            <SlideUpOnScroll>
             <div className="mb-4 text-center sm:mb-5">
               <h2
                 id="regional-heading"
@@ -275,11 +285,14 @@ export default function AboutUsPage() {
                 </p>
               </div>
             </div>
+            </SlideUpOnScroll>
           </div>
         </section>
 
         {/* FAQ section */}
-        <FAQSection faq={faq} assets={assets} />
+        <SlideUpOnScroll>
+          <FAQSection faq={faq} assets={assets} />
+        </SlideUpOnScroll>
         <Footer />
       </main>
     </div>

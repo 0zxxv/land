@@ -4,6 +4,7 @@ import { Footer } from "../_components/footer";
 import { Header } from "../_components/header";
 import { content } from "../content";
 import { ContactForm } from "./_components/contact-form";
+import { SlideUpOnScroll } from "../_components/slide-up-on-scroll";
 
 const { contactUs, assets } = content;
 
@@ -25,6 +26,7 @@ export default function ContactUsPage() {
           aria-labelledby="contact-heading"
         >
           <div className="mx-auto w-full max-w-4xl">
+            <SlideUpOnScroll>
             <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-5 sm:text-lg">
               <Image
                 src={assets.iconBlue}
@@ -58,6 +60,7 @@ export default function ContactUsPage() {
             <div className="rounded-2xl bg-[#F5F5F5] p-5 shadow-lg dark:bg-slate-800 sm:rounded-3xl sm:p-8 md:p-10 lg:p-12">
               <ContactForm form={contactUs.form} />
             </div>
+            </SlideUpOnScroll>
           </div>
 
           {/* Second section – contact info cards (full width) */}
@@ -65,6 +68,7 @@ export default function ContactUsPage() {
             className="mt-12 w-full px-4 sm:mt-16 sm:px-8 lg:mt-20 lg:px-16"
             aria-label="Contact information"
           >
+            <SlideUpOnScroll>
             <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
               {contactUs.contactInfo.map((card) => (
                 <div
@@ -80,6 +84,7 @@ export default function ContactUsPage() {
                 </div>
               ))}
             </div>
+            </SlideUpOnScroll>
           </div>
         </section>
 

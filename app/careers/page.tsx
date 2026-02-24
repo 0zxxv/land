@@ -4,6 +4,7 @@ import { Footer } from "../_components/footer";
 import { Header } from "../_components/header";
 import { JobListings } from "./_components/job-listings";
 import { content } from "../content";
+import { SlideUpOnScroll } from "../_components/slide-up-on-scroll";
 
 const { careers, assets } = content;
 
@@ -47,6 +48,7 @@ export default function CareersPage() {
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-7xl text-center sm:max-w-[90rem]">
+            <SlideUpOnScroll>
             <p className="mb-5 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-8 sm:text-lg">
               <Image
                 src={assets.iconBlue}
@@ -78,6 +80,7 @@ export default function CareersPage() {
             <p className="mx-auto max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-400 sm:text-base md:text-xl lg:text-2xl">
               {careers.description}
             </p>
+            </SlideUpOnScroll>
           </div>
         </section>
 
@@ -87,12 +90,14 @@ export default function CareersPage() {
           aria-labelledby="jobs-heading"
         >
           <div className="mx-auto max-w-6xl">
+            <SlideUpOnScroll>
             <JobListings
               jobs={careers.jobs}
               readMore={careers.readMore}
               iconBlue={assets.iconBlue}
               iconWhite={assets.iconWhite}
             />
+            </SlideUpOnScroll>
           </div>
         </section>
 
