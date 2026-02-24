@@ -3,6 +3,8 @@
 import { useActionState, useRef } from "react";
 import { submitContactForm } from "../action";
 
+type PhoneCountryOption = { value: string; label: string };
+
 type FormConfig = {
   nameLabel: string;
   namePlaceholder: string;
@@ -10,6 +12,7 @@ type FormConfig = {
   emailPlaceholder: string;
   phoneLabel: string;
   phonePlaceholder: string;
+  phoneCountryOptions: readonly PhoneCountryOption[];
   messageLabel: string;
   messagePlaceholder: string;
   submitLabel: string;
@@ -103,15 +106,37 @@ export function ContactForm({ form }: { form: FormConfig }) {
           >
             {form.phoneLabel}
           </label>
-          <input
-            id="contact-phone"
-            name="phone"
-            type="tel"
-            placeholder={form.phonePlaceholder}
-            autoComplete="tel"
-            maxLength={30}
-            className="rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
-          />
+          <div className="flex gap-2">
+            <div className="relative w-[10rem] shrink-0 sm:w-[11rem]">
+              <select
+                id="contact-phone-country"
+                name="phoneCountry"
+                aria-label="Country code"
+                defaultValue="+973"
+                className="w-full appearance-none rounded-2xl bg-white py-2.5 pl-4 pr-9 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:py-3 sm:pl-5 sm:pr-10 sm:text-base"
+              >
+                {form.phoneCountryOptions.map((opt) => (
+                  <option key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+              <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" aria-hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </div>
+            <input
+              id="contact-phone"
+              name="phoneNumber"
+              type="tel"
+              placeholder={form.phonePlaceholder}
+              autoComplete="tel-national"
+              maxLength={20}
+              className="min-w-0 flex-1 rounded-2xl bg-white px-4 py-2.5 text-sm text-slate-900 shadow-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:px-5 sm:py-3 sm:text-base"
+            />
+          </div>
         </div>
       </div>
 
