@@ -7,8 +7,8 @@ const HEADLINE_LAST_INDEX = hero.headlineLines.length - 1;
 
 export function Hero() {
   return (
-    <section className="flex min-h-[calc(100vh-80px)] flex-col items-start justify-start px-4 pt-6 pb-16 sm:px-8 sm:pt-8 sm:pb-24 lg:max-w-5xl lg:px-16 lg:pt-12">
-      <p className="mb-4 flex items-center gap-2 text-sm font-medium text-white sm:text-lg">
+    <section className="flex min-h-[calc(100vh-80px)] flex-col items-center justify-start px-4 pt-6 pb-16 text-center sm:items-start sm:px-8 sm:pt-8 sm:pb-24 sm:text-left lg:max-w-5xl lg:px-16 lg:pt-12">
+      <p className="mb-4 flex items-center justify-center gap-2 text-sm font-medium text-white sm:justify-start sm:text-lg">
         <Image
           src={assets.iconWhite}
           alt=""
@@ -40,7 +40,7 @@ export function Hero() {
 
       <Link
         href={hero.cta.href}
-        className="inline-flex w-fit items-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-medium text-black shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-slate-50 hover:shadow-xl active:scale-[0.98] sm:gap-2.5 sm:px-8 sm:py-4 sm:text-lg"
+        className="inline-flex w-fit items-center justify-center gap-2 rounded-lg bg-white px-6 py-3 text-base font-medium text-black shadow-md transition-all duration-200 hover:scale-[1.02] hover:bg-slate-50 hover:shadow-xl active:scale-[0.98] sm:gap-2.5 sm:px-8 sm:py-4 sm:text-lg"
       >
         {hero.cta.label}
         <Image
