@@ -41,13 +41,21 @@ function applyTheme(resolved: "light" | "dark") {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
+  const [theme, setThemeState] = useState<Theme>("system");
+  const [mounted, setMounted] = useState(false);
+
+  // After mount, read theme from localStorage so we're in sync (avoids hydration mismatch)
+  useEffect(() => {
+    setThemeState(getInitialTheme());
+    setMounted(true);
+  }, []);
+
   const resolved = resolveTheme(theme);
 
-  // Apply theme class on mount and when theme changes
+  // Apply theme class when theme changes (only after mount so we don't fight the inline script)
   useEffect(() => {
-    applyTheme(resolved);
-  }, [resolved]);
+    if (mounted) applyTheme(resolved);
+  }, [resolved, mounted]);
 
   // Listen to system preference changes when in system mode
   useEffect(() => {
