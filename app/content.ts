@@ -11,6 +11,8 @@ const ASSETS = {
   arrowBlack: "/assets/arrow-black.png",
   video: "/assets/bg-video.mp4",
   videoMobile: "/assets/bg-video-mobile.mp4",
+  videoDark: "/assets/bg-video-dark.mp4",
+  videoMobileDark: "/assets/bg-video-mobile-dark.mp4",
   rocket: "/assets/rocket.svg",
   rocketWhite: "/assets/rocket-white.svg",
   eye: "/assets/eye.svg",
