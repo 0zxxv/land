@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useMemo, useEffect } from "react";
-import { daysAgo } from "../../lib/utils";
+import { useState, useMemo } from "react";
 import { SlideUpOnScroll } from "../../_components/slide-up-on-scroll";
+
 const JOBS_PER_PAGE = 6;
 
 type Job = {
@@ -12,49 +12,21 @@ type Job = {
   readonly company: string;
   readonly tags: readonly string[];
   readonly descriptionSnippet: string;
-  readonly salary: string;
-  readonly postedDays: number;
-  readonly postedDate?: string;
 };
-
-function ClockIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" />
-    </svg>
-  );
-}
 
 export function JobListings({
   jobs,
-  readMore,
   iconBlue,
   iconWhite,
 }: {
   jobs: readonly Job[];
-  readMore: string;
   iconBlue: string;
   iconWhite: string;
 }) {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
   const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(jobs.length / JOBS_PER_PAGE);
   const start = (currentPage - 1) * JOBS_PER_PAGE;
-  useEffect(() => setSelectedIndex(0), [currentPage]);
   const jobsOnPage = useMemo(
     () => jobs.slice(start, start + JOBS_PER_PAGE),
     [jobs, start]
@@ -64,111 +36,79 @@ export function JobListings({
   const goNext = () => setCurrentPage((p) => Math.min(totalPages, p + 1));
   const goToPage = (page: number) => setCurrentPage(page);
 
-  const selectedGlobalIndex = selectedIndex === null ? null : start + selectedIndex;
-
   return (
     <>
       <div className="mb-8 flex flex-wrap justify-center gap-4 sm:mb-12 sm:gap-6">
         {jobsOnPage.map((job, index) => {
           const globalIndex = start + index;
-          const isSelected = selectedGlobalIndex === globalIndex;
           return (
             <SlideUpOnScroll key={globalIndex} delay={index * 80} className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]">
-            <article
-              role="button"
-              tabIndex={0}
-              onClick={() => setSelectedIndex(index)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setSelectedIndex(index);
-                }
-              }}
-              className={`flex w-full min-h-[220px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors sm:min-h-[260px] sm:rounded-2xl sm:p-6 ${
-                isSelected
-                  ? "bg-[#123146] text-white dark:bg-[#F3F4F6] dark:text-black"
-                  : "bg-[#F8FAFC] text-slate-900 dark:bg-slate-800 dark:text-slate-100"
-              }`}
-            >
-              <div className="mb-3 flex items-center justify-center gap-2 sm:mb-4 sm:justify-start sm:gap-3">
-                <Image
-                  src={isSelected ? iconWhite : iconBlue}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className={`h-6 w-6 shrink-0 object-contain sm:h-8 sm:w-8 ${isSelected ? "dark:hidden" : "dark:hidden"}`}
-                />
-                <Image
-                  src={isSelected ? iconBlue : iconWhite}
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="hidden h-6 w-6 shrink-0 object-contain dark:block sm:h-8 sm:w-8"
-                />
-                <h2
-                  id={index === 0 ? "jobs-heading" : undefined}
-                  className="text-center text-base font-bold sm:text-left sm:text-xl"
-                >
-                  {job.title}
-                </h2>
-              </div>
-              <p
-                className={`mb-2 text-center text-xs sm:mb-3 sm:text-left sm:text-sm ${
-                  isSelected ? "text-white/90 dark:text-black/70" : "text-slate-600 dark:text-slate-400"
-                }`}
-              >
-                {job.company}
-              </p>
-              <div className="mb-3 flex flex-wrap justify-center gap-1.5 sm:mb-4 sm:justify-start sm:gap-2">
-                {job.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`rounded-full px-2.5 py-0.5 text-[10px] font-medium sm:px-3 sm:py-1 sm:text-xs ${
-                      isSelected
-                        ? "bg-white text-black dark:bg-black dark:text-white"
-                        : "bg-[#EBF5FF] text-black dark:bg-sky-900/30 dark:text-sky-300"
-                    }`}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <p
-                className={`mb-2 flex-1 text-center text-xs leading-relaxed sm:mb-3 sm:text-left sm:text-sm ${
-                  isSelected ? "text-white/90 dark:text-black/70" : "text-slate-600 dark:text-slate-400"
-                }`}
-              >
-                {job.descriptionSnippet}
-              </p>
               <Link
                 href={`/careers/${globalIndex}`}
-                onClick={(e) => e.stopPropagation()}
-                className={`mb-3 inline-block text-center text-xs font-medium underline underline-offset-2 sm:mb-4 sm:text-left sm:text-sm ${
-                  isSelected
-                    ? "text-white hover:text-white/90 dark:text-black dark:hover:text-black/80"
-                    : "text-[#123146] hover:text-[#0f2942] dark:text-sky-400 dark:hover:text-sky-300"
-                }`}
+                className="block w-full"
               >
-                {readMore}
+                <article
+                  className="group flex w-full min-h-[260px] cursor-pointer flex-col rounded-xl p-4 shadow-sm transition-colors hover:bg-[#123146] hover:text-white dark:hover:bg-[#F3F4F6] dark:hover:text-black sm:min-h-[300px] sm:rounded-2xl sm:p-6 bg-[#F8FAFC] text-slate-900 dark:bg-slate-800 dark:text-slate-100"
+                >
+                  <div className="mb-3 flex items-center justify-center gap-2 sm:mb-4 sm:justify-start sm:gap-3">
+                    <span className="relative inline-flex h-6 w-6 shrink-0 dark:hidden sm:h-8 sm:w-8">
+                      <Image
+                        src={iconBlue}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="block h-6 w-6 shrink-0 object-contain opacity-100 transition-opacity group-hover:opacity-0 sm:h-8 sm:w-8"
+                      />
+                      <Image
+                        src={iconWhite}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="absolute inset-0 h-6 w-6 shrink-0 object-contain opacity-0 transition-opacity group-hover:opacity-100 sm:h-8 sm:w-8"
+                      />
+                    </span>
+                    <span className="relative hidden h-6 w-6 shrink-0 dark:inline-flex sm:h-8 sm:w-8">
+                      <Image
+                        src={iconWhite}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="block h-6 w-6 shrink-0 object-contain opacity-100 transition-opacity group-hover:opacity-0 sm:h-8 sm:w-8"
+                      />
+                      <Image
+                        src={iconBlue}
+                        alt=""
+                        width={32}
+                        height={32}
+                        className="absolute inset-0 h-6 w-6 shrink-0 object-contain opacity-0 transition-opacity group-hover:opacity-100 sm:h-8 sm:w-8"
+                      />
+                    </span>
+                    <h2
+                      id={index === 0 ? "jobs-heading" : undefined}
+                      className="text-center text-base font-bold sm:text-left sm:text-xl"
+                    >
+                      {job.title}
+                    </h2>
+                  </div>
+                  <p className="mb-2 text-center text-xs text-slate-600 dark:text-slate-400 sm:mb-3 sm:text-left sm:text-sm group-hover:text-white/90 dark:group-hover:text-black/70">
+                    {job.company}
+                  </p>
+                  <div className="min-h-0 flex-1" aria-hidden />
+                  <p className="mb-2 text-center text-xs leading-relaxed text-slate-600 dark:text-slate-400 sm:mb-3 sm:text-left sm:text-sm group-hover:text-white/90 dark:group-hover:text-black/70">
+                    {job.descriptionSnippet}
+                  </p>
+                  <div className="flex flex-wrap justify-center gap-1.5 border-t border-slate-200 pt-3 dark:border-slate-600 sm:justify-start sm:gap-2 sm:pt-4">
+                    {job.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full px-2.5 py-0.5 text-[10px] font-medium sm:px-3 sm:py-1 sm:text-xs bg-[#EBF5FF] text-black dark:bg-sky-900/30 dark:text-sky-300 group-hover:bg-white group-hover:text-[#123146] dark:group-hover:bg-black dark:group-hover:text-[#F3F4F6]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </article>
               </Link>
-              <div className="mt-auto flex items-center justify-between border-t pt-3 text-xs dark:border-slate-600 sm:pt-4 sm:text-sm">
-                <span
-                  className={
-                    isSelected ? "text-white/90 dark:text-black/70" : "text-slate-700 dark:text-slate-300"
-                  }
-                >
-                  {job.salary}
-                </span>
-                <span
-                  className={`flex items-center gap-1 ${
-                    isSelected ? "text-white/80 dark:text-black/60" : "text-slate-500 dark:text-slate-400"
-                  }`}
-                >
-                  <ClockIcon className="h-4 w-4" />
-                  Posted {job.postedDate ? daysAgo(job.postedDate) : job.postedDays} days ago
-                </span>
-              </div>
-            </article>
             </SlideUpOnScroll>
           );
         })}

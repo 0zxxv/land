@@ -8,6 +8,18 @@ import { SlideUpOnScroll } from "../_components/slide-up-on-scroll";
 
 const { contactUs, assets } = content;
 
+const DOTS_BG_STYLE = {
+  backgroundImage: "url('/assets/bg-dots.svg')",
+  backgroundRepeat: "repeat" as const,
+  transform: "rotate(180deg)",
+};
+
+const DOTS_BG_STYLE_DARK = {
+  backgroundImage: "url('/assets/bg-dots-white.svg')",
+  backgroundRepeat: "repeat" as const,
+  transform: "rotate(180deg)",
+};
+
 export const metadata: Metadata = {
   title: "Contact Us | MyntLabs",
   description: "Get in touch with MyntLabs.",
@@ -22,10 +34,12 @@ export default function ContactUsPage() {
       <main className="flex flex-1 flex-col">
         {/* First section – Contact form */}
         <section
-          className="flex flex-col items-center px-4 pt-8 pb-16 sm:px-8 sm:pt-12 sm:pb-24 lg:px-16 lg:pt-16 lg:pb-36"
+          className="relative flex flex-col items-center bg-white px-4 pt-8 pb-16 dark:bg-black sm:px-8 sm:pt-12 sm:pb-24 lg:px-16 lg:pt-16 lg:pb-36"
           aria-labelledby="contact-heading"
         >
-          <div className="mx-auto w-full max-w-4xl">
+          <div className="absolute left-0 right-0 top-0 h-[min(60vh,420px)] bg-white dark:hidden" style={DOTS_BG_STYLE} aria-hidden />
+          <div className="absolute left-0 right-0 top-0 hidden h-[min(60vh,420px)] dark:block dark:opacity-100" style={DOTS_BG_STYLE_DARK} aria-hidden />
+          <div className="relative z-10 mx-auto w-full max-w-4xl">
             <SlideUpOnScroll delay={0}>
               <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-5 sm:text-lg">
                 <Image src={assets.iconBlue} alt="" width={24} height={24} className="h-5 w-5 object-contain dark:hidden sm:h-6 sm:w-6" />

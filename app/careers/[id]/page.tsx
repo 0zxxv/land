@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "../../_components/footer";
@@ -6,7 +7,19 @@ import { Header } from "../../_components/header";
 import { content } from "../../content";
 import { daysAgo } from "../../lib/utils";
 
-const { careers } = content;
+const { careers, assets } = content;
+
+const DOTS_BG_STYLE = {
+  backgroundImage: "url('/assets/bg-dots.svg')",
+  backgroundRepeat: "repeat" as const,
+  transform: "rotate(180deg)",
+};
+
+const DOTS_BG_STYLE_DARK = {
+  backgroundImage: "url('/assets/bg-dots-white.svg')",
+  backgroundRepeat: "repeat" as const,
+  transform: "rotate(180deg)",
+};
 
 type Props = { params: Promise<{ id: string }> };
 
@@ -113,25 +126,31 @@ export default async function CareerDetailsPage({ params }: Props) {
   const hasShiftDetails = Array.isArray(jobWithExtras.shiftDetails) && jobWithExtras.shiftDetails.length > 0;
 
   return (
-    <div className="flex h-screen flex-col bg-white dark:bg-black">
+    <div className="flex h-screen flex-col overflow-y-auto bg-white dark:bg-black">
       <div className="sticky top-0 z-50 shrink-0">
         <Header />
       </div>
-      <main className="min-h-0 flex-1 overflow-y-auto">
+      <main className="flex flex-1 flex-col">
+        {/* Hero section – dots background, same as careers page */}
         <section
-          className="px-4 py-8 pb-16 sm:px-8 sm:py-12 sm:pb-24 lg:px-16 lg:py-16 lg:pb-36"
+          className="relative flex min-h-[min(32vh,280px)] flex-col items-center justify-center bg-white px-4 pt-8 pb-8 dark:bg-black sm:px-8 sm:pt-12 sm:pb-10 lg:min-h-[min(36vh,320px)] lg:pt-16 lg:pb-12"
           aria-labelledby="job-title"
         >
-          <div className="mx-auto max-w-3xl">
+          <div className="absolute inset-0 bg-white dark:hidden" style={DOTS_BG_STYLE} aria-hidden />
+          <div className="absolute inset-0 hidden dark:block dark:opacity-100" style={DOTS_BG_STYLE_DARK} aria-hidden />
+          <div className="relative z-10 mx-auto max-w-3xl text-center sm:text-left">
+            <p className="mb-4 flex items-center justify-center gap-2 text-sm font-bold text-[#123146] dark:text-[#F3F4F6] sm:mb-5 sm:text-lg">
+              <Image src={assets.iconBlue} alt="" width={24} height={24} className="h-5 w-5 object-contain dark:hidden sm:h-6 sm:w-6" />
+              <Image src={assets.iconWhite} alt="" width={24} height={24} className="hidden h-5 w-5 object-contain dark:block sm:h-6 sm:w-6" />
+              {careers.label}
+            </p>
             <Link
               href="/careers"
-              className="mb-6 inline-flex items-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-[#F3F4F6] sm:mb-8 sm:text-sm"
+              className="mb-6 inline-flex items-center justify-center gap-2 text-xs font-medium text-[#123146] hover:underline dark:text-[#F3F4F6] sm:mb-8 sm:justify-start sm:text-sm"
             >
               ← Back to careers
             </Link>
-
-            {/* Job title + Apply Now */}
-            <div className="mb-2 flex flex-wrap items-center gap-3 sm:mb-3 sm:gap-4">
+            <div className="mb-2 flex flex-wrap items-center justify-center gap-3 sm:mb-3 sm:justify-start sm:gap-4">
               <h1
                 id="job-title"
                 className="text-xl font-bold uppercase tracking-tight text-slate-900 dark:text-slate-100 sm:text-3xl md:text-4xl"
@@ -147,9 +166,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                 Apply Now
               </a>
             </div>
-
-            {/* Contact details: location and date */}
-            <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400 sm:mb-10 sm:justify-start sm:gap-4 sm:text-base">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400 sm:justify-start sm:gap-4 sm:text-base">
               {hasLocationAndDate ? (
                 <>
                   <span className="flex items-center gap-1.5">
@@ -168,7 +185,15 @@ export default async function CareerDetailsPage({ params }: Props) {
                 </span>
               )}
             </div>
+          </div>
+        </section>
 
+        {/* Content section – no dots, same as careers job listings section */}
+        <section
+          className="bg-white px-4 pt-6 pb-16 dark:bg-black sm:px-8 sm:pt-8 sm:pb-24 lg:px-16 lg:pt-10 lg:pb-36"
+          aria-label="Job details"
+        >
+          <div className="mx-auto max-w-3xl">
             {/* JOB DETAILS */}
             {hasJobType && (
               <div className="mb-10">

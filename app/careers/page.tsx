@@ -79,7 +79,6 @@ export default function CareersPage() {
           <div className="mx-auto max-w-6xl">
             <JobListings
               jobs={careers.jobs}
-              readMore={careers.readMore}
               iconBlue={assets.iconBlue}
               iconWhite={assets.iconWhite}
             />
