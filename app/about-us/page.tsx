@@ -6,6 +6,7 @@ import { content } from "../content";
 import { formatCardTitleLines } from "../lib/utils";
 import { Footer } from "../_components/footer";
 import { FAQSection } from "./_components/faq-section";
+import { WireframeCube } from "../_components/wireframe-cube";
 
 const { aboutUs, purpose, values, regionalPresence, faq, assets } = content;
 
@@ -158,14 +159,8 @@ export default function AboutUsPage() {
                 </article>
               </div>
             </div>
-            <div className="relative min-h-[220px] overflow-hidden rounded-2xl sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
-              <Image
-                src={assets.criticalError}
-                alt="Team member at computer with critical error visualization"
-                fill
-                sizes="(max-width: 1023px) 100vw, 58vw"
-                className="object-cover object-center"
-              />
+            <div className="flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl bg-white dark:bg-slate-800 sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
+              <WireframeCube className="h-[350px] w-[350px] sm:h-[400px] sm:w-[400px]" />
             </div>
           </div>
         </section>

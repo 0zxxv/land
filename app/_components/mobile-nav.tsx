@@ -22,9 +22,6 @@ export function MobileNav() {
   useEffect(() => {
     if (open) {
       setMounted(true);
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => setAnimating(true));
-      });
       document.body.style.overflow = "hidden";
     } else if (mounted) {
       setAnimating(false);
@@ -44,6 +41,13 @@ export function MobileNav() {
       clearTimeout(timeoutRef.current);
     };
   }, [open, close, mounted]);
+
+  useEffect(() => {
+    if (mounted && open) {
+      const id = setTimeout(() => setAnimating(true), 20);
+      return () => clearTimeout(id);
+    }
+  }, [mounted, open]);
 
   return (
     <>
