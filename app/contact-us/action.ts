@@ -15,6 +15,7 @@ export async function submitContactForm(
 ): Promise<ActionResult> {
   const name = (formData.get("name") as string | null)?.trim() ?? "";
   const email = (formData.get("email") as string | null)?.trim() ?? "";
+  const phone = (formData.get("phone") as string | null)?.trim() ?? "";
   const message = (formData.get("message") as string | null)?.trim() ?? "";
 
   // Honeypot check
@@ -53,6 +54,7 @@ export async function submitContactForm(
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
+        ...(phone ? [`Phone: ${phone}`] : []),
         "",
         "Message:",
         message,

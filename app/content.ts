@@ -246,6 +246,8 @@ export const content = {
       namePlaceholder: "Enter your name",
       emailLabel: "Email address",
       emailPlaceholder: "Enter your email",
+      phoneLabel: "Phone number",
+      phonePlaceholder: "Enter your phone number",
       messageLabel: "Your message",
       messagePlaceholder: "Write something.....",
       submitLabel: "Submit",
