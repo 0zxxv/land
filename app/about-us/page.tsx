@@ -123,7 +123,12 @@ export default function AboutUsPage() {
               <div className="group flex min-h-[220px] items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
                 <AutoplayVideo
                   src="/assets/pixel-video-white.mp4"
-                  className="h-[280px] w-[280px] object-contain sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]"
+                  className="h-[280px] w-[280px] object-contain dark:hidden sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]"
+                  ariaHidden
+                />
+                <AutoplayVideo
+                  src="/assets/pixel-video-dark.mp4"
+                  className="hidden h-[280px] w-[280px] object-contain dark:block sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]"
                   ariaHidden
                 />
               </div>
