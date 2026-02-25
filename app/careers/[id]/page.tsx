@@ -7,6 +7,7 @@ import { Header } from "../../_components/header";
 import { SlideUpOnScroll } from "../../_components/slide-up-on-scroll";
 import { content } from "../../content";
 import { JobDetailsContent } from "./_components/job-details-content";
+import { SlideUpOnDelay } from "./_components/slide-up-on-delay";
 import { daysAgo } from "../../lib/utils";
 
 const { careers, assets } = content;
@@ -207,7 +208,7 @@ export default async function CareerDetailsPage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             {/* JOB DETAILS */}
             {hasJobType && (
-              <SlideUpOnScroll delay={0}>
+              <SlideUpOnDelay delay={500}>
               <div className="mb-10">
                 <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   Job details
@@ -220,11 +221,11 @@ export default async function CareerDetailsPage({ params }: Props) {
                   </span>
                 </div>
               </div>
-              </SlideUpOnScroll>
+              </SlideUpOnDelay>
             )}
 
             {/* ABOUT THE JOB */}
-            <SlideUpOnScroll delay={50}>
+            <SlideUpOnDelay delay={550}>
             <div className="mb-10">
               <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                 About the job
@@ -309,11 +310,11 @@ export default async function CareerDetailsPage({ params }: Props) {
                   )}
               </div>
             </div>
-            </SlideUpOnScroll>
+            </SlideUpOnDelay>
 
             {/* RECRUITERS INFO */}
             {hasRecruitersInfo && jobWithExtras.recruitersInfo && (
-              <SlideUpOnScroll delay={100}>
+              <SlideUpOnDelay delay={600}>
               <div className="mb-10">
                 <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   Recruiters info
@@ -326,12 +327,12 @@ export default async function CareerDetailsPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
-              </SlideUpOnScroll>
+              </SlideUpOnDelay>
             )}
 
             {/* Shift details */}
             {hasShiftDetails && jobWithExtras.shiftDetails && (
-              <SlideUpOnScroll delay={150}>
+              <SlideUpOnDelay delay={650}>
               <div className="mb-10">
                 <h2 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700 dark:text-slate-300">
                   About the job
@@ -361,7 +362,7 @@ export default async function CareerDetailsPage({ params }: Props) {
                   ))}
                 </ul>
               </div>
-              </SlideUpOnScroll>
+              </SlideUpOnDelay>
             )}
           </div>
           </JobDetailsContent>
