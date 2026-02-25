@@ -6,7 +6,7 @@ import { content } from "../content";
 import { formatCardTitleLines } from "../lib/utils";
 import { Footer } from "../_components/footer";
 import { FAQSection } from "./_components/faq-section";
-import { WireframeCube } from "../_components/wireframe-cube";
+import { AutoplayVideo } from "../_components/autoplay-video";
 import { SlideUpOnScroll } from "../_components/slide-up-on-scroll";
 
 const { aboutUs, purpose, values, regionalPresence, faq, assets } = content;
@@ -121,7 +121,11 @@ export default function AboutUsPage() {
             </div>
             <SlideUpOnScroll delay={100}>
               <div className="group flex min-h-[220px] items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
-                <WireframeCube className="h-[280px] w-[280px] sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]" />
+                <AutoplayVideo
+                  src="/assets/pixel-video-white.mp4"
+                  className="h-[280px] w-[280px] object-contain sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]"
+                  ariaHidden
+                />
               </div>
             </SlideUpOnScroll>
           </div>
