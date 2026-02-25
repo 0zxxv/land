@@ -70,7 +70,7 @@ export function Footer() {
 
       {/* Footer block */}
       <section
-        className="relative bg-[#0A161F] px-4 pt-5 pb-10 sm:px-5 sm:pt-6 sm:pb-12 lg:px-10 lg:pt-8 lg:pb-16"
+        className="relative bg-[#0A161F] px-4 pt-5 pb-[max(3.5rem,env(safe-area-inset-bottom))] sm:px-5 sm:pt-6 sm:pb-12 lg:px-10 lg:pt-8 lg:pb-16"
         aria-label="Site footer"
       >
         <div className="mx-auto w-full max-w-[90%]">

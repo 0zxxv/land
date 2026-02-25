@@ -107,13 +107,13 @@ export function ContactForm({ form }: { form: FormConfig }) {
             {form.phoneLabel}
           </label>
           <div className="flex gap-2">
-            <div className="relative w-[10rem] shrink-0 sm:w-[11rem]">
+            <div className="relative w-[7.5rem] shrink-0 sm:w-[11rem]">
               <select
                 id="contact-phone-country"
                 name="phoneCountry"
                 aria-label="Country code"
                 defaultValue="+973"
-                className="w-full appearance-none rounded-2xl bg-white py-2.5 pl-4 pr-9 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:py-3 sm:pl-5 sm:pr-10 sm:text-base"
+                className="w-full min-w-0 appearance-none truncate rounded-2xl bg-white py-2.5 pl-3 pr-9 text-sm text-slate-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#123146]/20 dark:bg-slate-700 dark:text-slate-100 dark:focus:ring-sky-500/30 sm:rounded-3xl sm:py-3 sm:pl-5 sm:pr-10 sm:text-base"
               >
                 {form.phoneCountryOptions.map((opt) => (
                   <option key={opt.value} value={opt.value}>

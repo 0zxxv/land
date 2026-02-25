@@ -158,7 +158,7 @@ export default function AboutUsPage() {
                 const iconSrc = iconKey ? assets[iconKey] : undefined;
                 const iconSrcWhite = iconKeyWhite ? assets[iconKeyWhite] : undefined;
                 return (
-                  <SlideUpOnScroll key={card.title} delay={100 + i * 80}>
+                  <SlideUpOnScroll key={card.title} delay={100 + i * 45}>
                     <article className="group flex min-h-[220px] flex-col items-center rounded-xl bg-slate-100 p-5 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl dark:bg-slate-800 sm:min-h-[250px] sm:items-start sm:p-8 sm:text-left hover:dark:bg-slate-700/90">
                       {iconSrc && <Image src={iconSrc} alt="" width={48} height={48} className="mb-4 h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:scale-110 dark:hidden sm:mb-8 sm:h-10 sm:w-10" />}
                       {iconSrcWhite && <Image src={iconSrcWhite} alt="" width={48} height={48} className="mb-4 hidden h-9 w-9 shrink-0 object-contain transition-transform duration-300 group-hover:scale-110 dark:block sm:mb-8 sm:h-10 sm:w-10" />}
