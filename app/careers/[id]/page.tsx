@@ -6,6 +6,7 @@ import { Footer } from "../../_components/footer";
 import { Header } from "../../_components/header";
 import { SlideUpOnScroll } from "../../_components/slide-up-on-scroll";
 import { content } from "../../content";
+import { JobDetailsContent } from "./_components/job-details-content";
 import { daysAgo } from "../../lib/utils";
 
 const { careers, assets } = content;
@@ -202,6 +203,7 @@ export default async function CareerDetailsPage({ params }: Props) {
           className="bg-white px-4 pt-6 pb-16 dark:bg-black sm:px-8 sm:pt-8 sm:pb-24 lg:px-16 lg:pt-10 lg:pb-36"
           aria-label="Job details"
         >
+          <JobDetailsContent>
           <div className="mx-auto max-w-3xl">
             {/* JOB DETAILS */}
             {hasJobType && (
@@ -362,6 +364,7 @@ export default async function CareerDetailsPage({ params }: Props) {
               </SlideUpOnScroll>
             )}
           </div>
+          </JobDetailsContent>
         </section>
 
         <Footer />
