@@ -47,8 +47,6 @@ export function VideoBackground() {
       </video>
       {/* Light overlay – light mode */}
       <div className="absolute inset-0 bg-black/10 dark:hidden" />
-      {/* Stronger overlay – dark mode: tones down the video so it stays background */}
-      <div className="absolute inset-0 hidden bg-black/55 dark:block" aria-hidden />
     </div>
   );
 }
