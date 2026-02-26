@@ -36,7 +36,7 @@ export function FAQAccordion({
               </span>
               <span
                 className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-lg font-medium text-white sm:h-14 sm:w-14 sm:rounded-xl sm:text-2xl md:h-16 md:w-16 md:text-3xl ${
-                  isActive ? "bg-gray-600 dark:bg-black dark:text-white" : "bg-black dark:bg-[#F3F4F6] dark:text-black"
+                  isActive ? "bg-[#123146] dark:bg-[#123146] dark:text-white" : "bg-black dark:bg-[#F3F4F6] dark:text-black"
                 }`}
               >
                 {isActive ? "−" : "+"}
