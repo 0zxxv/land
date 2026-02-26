@@ -70,7 +70,7 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
                 alt=""
                 width={360}
                 height={360}
-                className="hidden h-28 w-28 object-contain object-right-top dark:block sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-56 lg:w-56"
+                className="hidden h-30 w-30 object-contain object-right-top dark:block sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
               />
             </div>
             <div className="relative z-10 mt-auto flex w-full min-w-0 flex-col px-4 pb-6 pt-4 pr-[5rem] sm:px-6 sm:pb-8 sm:pt-6 sm:pr-[7rem] md:pr-[8rem] lg:pr-[9rem]">
