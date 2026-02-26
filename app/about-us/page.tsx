@@ -119,16 +119,16 @@ export default function AboutUsPage() {
                 </SlideUpOnScroll>
               </div>
             </div>
-            <SlideUpOnScroll delay={100}>
-              <div className="group flex min-h-[220px] items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
+            <SlideUpOnScroll delay={100} className="flex min-h-[200px] items-center justify-center lg:h-full lg:min-h-0">
+              <div className="group flex h-[240px] w-[240px] shrink-0 items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:h-[320px] sm:w-[320px] lg:h-[380px] lg:w-[380px]">
                 <AutoplayVideo
                   src="/assets/pixel-video-white.mp4"
-                  className="h-[280px] w-[280px] object-contain dark:hidden sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]"
+                  className="h-full max-h-full w-full max-w-full object-contain dark:hidden"
                   ariaHidden
                 />
                 <AutoplayVideo
-                  src="/assets/pixel-video-dark.mp4"
-                  className="hidden h-[280px] w-[280px] object-contain dark:block sm:h-[450px] sm:w-[450px] lg:h-[550px] lg:w-[550px]"
+                  src="/assets/pixel-video-black.mp4"
+                  className="hidden h-full max-h-full w-full max-w-full object-contain dark:block"
                   ariaHidden
                 />
               </div>
