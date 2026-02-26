@@ -120,7 +120,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             <SlideUpOnScroll delay={100} className="flex min-h-[200px] items-center justify-center lg:h-full lg:min-h-0">
-              <div className="group flex h-[240px] w-[240px] shrink-0 items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:h-[320px] sm:w-[320px] lg:h-[380px] lg:w-[380px]">
+              <div className="group flex h-[300px] w-[300px] shrink-0 items-center justify-center rounded-2xl bg-white transition-transform duration-300 hover:scale-[1.02] dark:bg-black sm:h-[400px] sm:w-[400px] lg:h-[480px] lg:w-[480px]">
                 <AutoplayVideo
                   src="/assets/pixel-video-white.mp4"
                   className="h-full max-h-full w-full max-w-full object-contain dark:hidden"
