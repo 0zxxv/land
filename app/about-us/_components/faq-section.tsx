@@ -57,20 +57,22 @@ export function FAQSection({ faq, assets }: FAQSectionProps) {
             />
           </div>
           <div className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-xl bg-[#F3F4F6] shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-slate-800 sm:min-h-[320px] sm:rounded-2xl lg:min-h-0">
-            <div className="absolute right-0 top-0 z-0">
+            <div className="absolute right-0 top-0 z-0 h-40 w-40 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72">
               <Image
                 src={assets.jellyLogo}
                 alt=""
                 width={360}
                 height={360}
-                className="h-40 w-40 object-contain object-right-top dark:hidden sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
+                className="h-full w-full object-contain object-right-top dark:hidden"
               />
+            </div>
+            <div className="absolute right-0 top-0 z-0 hidden h-32 w-32 sm:h-44 sm:w-44 md:h-52 md:w-52 lg:h-60 lg:w-60 dark:block">
               <Image
                 src={assets.jellyLogoWhite}
                 alt=""
                 width={360}
                 height={360}
-                className="hidden h-30 w-30 object-contain object-right-top dark:block sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
+                className="h-full w-full object-contain object-right-top"
               />
             </div>
             <div className="relative z-10 mt-auto flex w-full min-w-0 flex-col px-4 pb-6 pt-4 pr-[5rem] sm:px-6 sm:pb-8 sm:pt-6 sm:pr-[7rem] md:pr-[8rem] lg:pr-[9rem]">
